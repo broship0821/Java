@@ -104,7 +104,7 @@ public class ExamList {
 	
 	}
 
-	public ExamList() {
+	public void init() {
 		exams = new Exam[3];
 		current = 0;
 	}
