@@ -1,6 +1,0 @@
-package part3.ex1.Ä¸½¶È­;
-
-public class ExamList {
-	Exam[] exams;
-	int current;
-}

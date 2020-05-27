@@ -108,6 +108,14 @@ public class ExamList {
 		exams = new Exam[3];
 		current = 0;
 	}
+//	생성자 오버로드(Constructor Overload)
+//	public ExamList() {
+//		this(3);
+//	}
+//	public ExamList(int size) {
+//		exams = new Exam[size];
+//		current = 0;
+//	}
 }
 
 
