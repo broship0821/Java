@@ -1,0 +1,7 @@
+package part3.ex3.Getters¿ÍSetters.copy;
+
+public class Exam {
+	int kor1;
+	int eng;
+	int math;
+}
