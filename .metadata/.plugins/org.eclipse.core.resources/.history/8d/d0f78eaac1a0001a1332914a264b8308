@@ -1,7 +1,0 @@
-package part3.ex.Getters¿ÍSetters;
-
-public class Exam {
-	int kor;
-	int eng;
-	int math;
-}
