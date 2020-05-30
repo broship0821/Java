@@ -34,8 +34,11 @@ public class ExamList {
 //	        int math = exam.math;
 	        int math = exam.getMath();
 	        
-	        int total = kor+eng+math;
-	    	float avg = total / 3.0f;
+//	        이것도 캡슐화 진행해야됨
+//	        int total = kor+eng+math;
+//	    	float avg = total / 3.0f;
+	        int total = exam.total();
+	        float avg = exam.avg();
 	    	
 	    	
 	    	System.out.printf("국어 : %3d\n", kor);
@@ -86,6 +89,7 @@ public class ExamList {
 	        
         }while(math < 0 || 100 < math);
         
+        /*
         Exam exam = new Exam();
 //      setters 다른곳에서 값을 가져와 설정해야될때
 //    	exam.kor = kor;
@@ -94,6 +98,9 @@ public class ExamList {
         exam.setKor(kor);
         exam.setEng(eng);
         exam.setMath(math);
+        */
+//      더 좋은 방법
+        Exam exam = new Exam(kor, eng, math);
 
     	Exam[] exams = this.exams;
     	int size = current;
