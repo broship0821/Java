@@ -22,7 +22,7 @@ public class ExamList {
         Exam[] exams = this.exams;
         
         for(int i=0;i<size;i++) {
-	        Exam exam = exams[i];
+	        Exam exam = exams[i];	
 	        int kor = exam.kor;
 	        int eng = exam.eng;
 	        int math = exam.math;

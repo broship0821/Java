@@ -100,6 +100,7 @@ public class ExamList {
         exam.setMath(math);
         */
 //      더 좋은 방법
+        Exam exam1 = new Exam();
         Exam exam = new Exam(kor, eng, math);
 
     	Exam[] exams = this.exams;

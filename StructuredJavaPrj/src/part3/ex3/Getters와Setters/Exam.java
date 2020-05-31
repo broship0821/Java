@@ -4,6 +4,12 @@ public class Exam {
 	int kor;
 	int eng;
 	int math;
+	
+	public Exam() {
+		this(0, 0, 0);
+	}
+	
+//	오버로드 생성자
 public Exam(int kor, int eng, int math) {
 		this.kor = kor;
 		this.eng = eng;
