@@ -19,7 +19,7 @@ public class Program {
 		kor2 = 0;
 		kor3 = 0;
 		*/
-		
+		// 배열은 초기값이 0임, 사실 초기화할필요 없음
 		for(int i=0;i<3;i++)
 			kors[i] = 0;
 		
@@ -79,7 +79,9 @@ public class Program {
 			case 2:
 				// 성적 출력 부분----------------------------------
 				//total = kor1 + kor2 + kor3;
-				total = kors[0] + kors[1] + kors[2];
+				//total = kors[0] + kors[1] + kors[2];
+				total = 0; // avg는 왜 초기화 할필요 없고 total은 초기화 해야되지?
+				for(int i=0;i<3;i++) total += kors[i];
 				avg = total / 3.0f;
 				
 				
