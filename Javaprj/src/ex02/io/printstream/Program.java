@@ -9,6 +9,7 @@ public class Program {
 		kor2 = 60;
 		kor3 = 80;
 
+		// 얘내들은 왜 초기화 안시켜줘도 되는거지??
 		total = kor1 + kor2 + kor3;
 		avg = total / 3;
 
