@@ -80,7 +80,7 @@ public class Program {
 				// 성적 출력 부분----------------------------------
 				//total = kor1 + kor2 + kor3;
 				//total = kors[0] + kors[1] + kors[2];
-				total = 0; // avg는 왜 초기화 할필요 없고 total은 초기화 해야되지?
+				total = 0; // avg는 왜 초기화 할필요 없고 total은 초기화 해야되지? - for이라는 함수 안에서 쓰이고 있으니까, 지역함수에서 변수 쓸때는 초기화 시켜줘야됨
 				for(int i=0;i<3;i++) total += kors[i];
 				avg = total / 3.0f;
 				
