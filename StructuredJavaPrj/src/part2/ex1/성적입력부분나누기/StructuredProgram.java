@@ -8,7 +8,7 @@ public class StructuredProgram{
     public static void main(String[] args) {
     	
     	
-    	int[] koreans = new int[3];
+    	int[] koreans = new int[4];
     	int menu;
         boolean keepLoop = true;			
 		
@@ -16,7 +16,7 @@ public class StructuredProgram{
 		while(keepLoop)
 		{
 			menu = inputMenu();
-	        switch(menu) {	        
+	        switch(menu) {
 	        case 1:	        	
 				inputKors(koreans);	        	
 		        break;
@@ -54,14 +54,14 @@ public class StructuredProgram{
     static void inputKors(int[] kors) {
     	
     	Scanner scan = new Scanner(System.in);
-    	int kor;
+    	int kor; // 배열 남발하기 보단 이렇게 해서 정리하는게 더 바람직함
     	
     	System.out.println("┌───────────────┐");
         System.out.println("│           성적  입력                  │");
         System.out.println("└───────────────┘");
         System.out.println();
        		        
-        for(int i=0; i<3; i++) {
+        for(int i=0; i<kors.length; i++) {
 	        do {
 		        System.out.printf("국어%d : ", i+1);
 		        kor = scan.nextInt();
@@ -80,18 +80,18 @@ public class StructuredProgram{
     	
     	int total = 0;
     	float avg;
-    	
-    	for(int i=0; i<3; i++)
+    	// i<3 으로 다 되있었는데 length로 하는게 한번에 바뀜
+    	for(int i=0; i<kors.length; i++)
         	total += kors[i];
         
-        avg = total / 3.0f;
+        avg = (float)total / kors.length;
         
         System.out.println("┌───────────────┐");
         System.out.println("│           성적  출력                  │");
         System.out.println("└───────────────┘");
         System.out.println();		        
        
-        for(int i=0;i<3;i++)
+        for(int i=0;i<kors.length;i++)
         	System.out.printf("국어 %d : %3d\n", i+1, kors[i]);	        	
         	        
         System.out.printf("총점 : %3d\n", total);

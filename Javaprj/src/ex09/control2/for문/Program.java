@@ -54,7 +54,7 @@ public class Program {
 			System.out.println("│         성적 출력                 │");
 			System.out.println("└─────────────────────┘");
 			
-			for(int i=0;i<3;i++) {
+			for(int i=0;i<1;i++) {
 				System.out.printf("\t국어%d : %3d\n", i+1, kor1);
 			}
 			

@@ -13,5 +13,7 @@ public class Program {
 
 		System.out.printf("total is %d\n", total);
 		System.out.printf("avg is %f\n", avg);
+		
+		
 	}
 }
