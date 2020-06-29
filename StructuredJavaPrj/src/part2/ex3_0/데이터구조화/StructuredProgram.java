@@ -1,3 +1,4 @@
+package part2.ex3_0.데이터구조화;
 /*
  * package part2.ex3.데이터구조화;
  * 

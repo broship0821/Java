@@ -1,4 +1,4 @@
-package part2.ex3.데이터구조화;
+package part2.ex3_3.가변길이배열구현하기;
 
 import java.util.Scanner;
 
