@@ -1,4 +1,4 @@
-package part2.ex3_3.가변길이배열구현하기;
+package part2.ex4.함수오버로딩;
 
 import java.util.Scanner;
 
@@ -22,7 +22,7 @@ public class ListProgram {
 				inputLIst(list);
 		        break;
 	        case 2:		        
-		        printList(list);	        	
+		        printList(list, 2);	        	
 		        break;
 	        case 3:
 	        	System.out.println("Bye~~");	        	
@@ -54,13 +54,18 @@ public class ListProgram {
     }
 
 	private static void printList(ExamList list) {
+		printList(list, list.current); // 오버로딩 함수 집중화
+		
+	}
+	//오버로딩 부분
+	private static void printList(ExamList list, int size) {
 		System.out.println("┌───────────────┐");
         System.out.println("│           성적  출력                  │");
         System.out.println("└───────────────┘");
         System.out.println();
-        
-        int size = list.current; // size라는 데이터 만들어서 list 데이터 안에 있는 current값 대입
-        Exam[] exams = list.exams; // list안에있는 exams 배열 대입
+        //이 함수는 매개변수로 입력된 만큼만 출력됨
+        //int size = list.current;
+        Exam[] exams = list.exams;
         
         for(int i=0;i<size;i++) {
 	        Exam exam = exams[i];

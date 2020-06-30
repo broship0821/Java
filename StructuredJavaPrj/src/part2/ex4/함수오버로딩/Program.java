@@ -1,14 +1,14 @@
-package part2.ex3_3.가변길이배열구현하기;
+package part2.ex4.함수오버로딩;
 
 import java.util.Scanner;
 
-public class ListProgram {
+public class Program {
 
 	public static void main(String[] args) {
 		
-		ExamList list = new ExamList();
-		list.exams = new Exam[3];
-		list.current = 0;
+		
+		Exam[] exams = new Exam[3]; // 얘는 참조형이라 어디다 대입하든 공유됨
+		int current = 0; // 얘는 그냥 지역변수라 다른곳에서 수정이 일어나도 공유 안됨
 		
 		int menu;
         boolean keepLoop = true;			
@@ -19,10 +19,11 @@ public class ListProgram {
 			menu = inputMenu();
 	        switch(menu) {
 	        case 1:	        	
-				inputLIst(list);
+				inputLIst(exams, current);	    
+				current++; //일단 이렇게 하면 inputLIst의 지역변수가 아닌 main 함수의 current가 1씩 증가함
 		        break;
 	        case 2:		        
-		        printList(list);	        	
+		        printList(exams, current);	        	
 		        break;
 	        case 3:
 	        	System.out.println("Bye~~");	        	
@@ -53,14 +54,11 @@ public class ListProgram {
         return menu;
     }
 
-	private static void printList(ExamList list) {
+	private static void printList(Exam[] exams, int size) { // size는 current임, 여기 함수에서만 size라고 표시/ current값을 받아서 size에 대입 후 사용
 		System.out.println("┌───────────────┐");
         System.out.println("│           성적  출력                  │");
         System.out.println("└───────────────┘");
         System.out.println();
-        
-        int size = list.current; // size라는 데이터 만들어서 list 데이터 안에 있는 current값 대입
-        Exam[] exams = list.exams; // list안에있는 exams 배열 대입
         
         for(int i=0;i<size;i++) {
 	        Exam exam = exams[i];
@@ -80,7 +78,7 @@ public class ListProgram {
 		
 	}
 
-	private static void inputLIst(ExamList list) {
+	private static void inputLIst(Exam[] exams, int current) {
 		
 		Scanner scan = new Scanner(System.in);
     	
@@ -119,36 +117,13 @@ public class ListProgram {
 	        
         }while(math < 0 || 100 < math);
         
-        Exam exam = new Exam();
+        Exam exam = new Exam(); //exam 변수 사용하게 만들기
         exam.kor = kor;
         exam.eng = eng;
         exam.math = math;
         
-		/*
-		 * 여기까지 하면 list.exams에 대입된 3개의 배열만 사용 가능, 더 사용 가능하게 할려면
-		 * if(!exams에 공간이 있는지) {
-		 * 		공간 늘리기; 
-		 * } 이렇게 해줘야됨
-		 */
-        //배열 크기 늘리기
-        Exam[] exams = list.exams;
-        int size = list.current;
-        
-        if(exams.length==size) {
-        	// 1. 크기가 5개정도 더 큰 새로운 배열(temp)생성하기
-        	Exam[] temp = new Exam[size+5];
-        	// 2. 값 이주시키기
-        	for(int i =0;i<size;i++)
-        		temp[i] = exams[i]; // list안에있는 exams배열을 temp배열에 대입
-        	// 3. exams = temp; 하면 list안에있는 배열이 바뀌는게 아니라 지역변수에서 지정한 exams가 바뀜
-        	// list.exams가 새로만든 temp 배열을 참조할수있게 해야됨
-        	list.exams = temp;
-        	
-        }
-        
-        
-        list.exams[list.current] = exam;
-        list.current++; // list안에 있는 값 바꿨기 때문에 서로 참조가 되서 공유됨
+        exams[current] = exam; // 이제 입력 받은 만큼만 대입시킴
+        current++; // 이러면 지역변수 current만 ++됨
         
 		
 	}
