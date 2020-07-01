@@ -1,4 +1,4 @@
-package part3.ex1.캡슐화;
+package part3.ex2_1.캡슐의은닉성과접근지정자;
 
 import java.util.Scanner;
 
@@ -7,10 +7,10 @@ public class Program {
 	public static void main(String[] args) {
 		
 		ExamList list = new ExamList();
-		//여기에 있는 부분들도 ExamList클래스가 변경되면 영향을 받기 때문에 초기화도 해당 클래스에서 해줘야됨
-		//list.exams = new Exam[3];
-		//list.current = 0;
-		ExamList.init(list); //변수 생성 및 초기화도 해당 클래스에서 해라
+		//list.init(); 이건 서비스 함수가 아니기 때문에 생성자를 사용함
+		//ExamList list = new ExamList(); 여기서 new ExamList() 는 new ExamList + ()-생성자 임,
+		//ExamList를 새로 생성하는 동시에 ()로 ExamLIst()를 사용, 생성될때 딱 한번만 사용가능
+		//list.ExamList(); 이건 이제 사용 불가능
 		
 		int menu;
         boolean keepLoop = true;			
@@ -21,10 +21,12 @@ public class Program {
 			menu = inputMenu();
 	        switch(menu) {
 	        case 1:	        	
-				ExamList.inputLIst(list);//함수를 다른 클래스에 넣어놨기 때문에 Examlist.로 어디있는 함수를 사용할건지 알려줘야됨
+				//ExamList.inputLIst(list); static 전통적인 함수
+	        	list.inputLIst(); // 인스턴스 메소드
 		        break;
 	        case 2:		        
-	        	ExamList.printList(list);	        	
+	        	//ExamList.printList(list);	 
+	        	list.printList();
 		        break;
 	        case 3:
 	        	System.out.println("Bye~~");	        	
@@ -51,7 +53,7 @@ public class Program {
         System.out.println("\t2. 성적출력 ");
         System.out.println("\t3. 종료 ");
         System.out.println("\t선택> ");
-         int menu = scan.nextInt();
+        int menu = scan.nextInt();
         return menu;
     }
 

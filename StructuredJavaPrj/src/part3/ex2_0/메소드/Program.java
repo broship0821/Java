@@ -1,4 +1,4 @@
-package part3.ex1.캡슐화;
+package part3.ex2_0.메소드;
 
 import java.util.Scanner;
 
@@ -7,10 +7,7 @@ public class Program {
 	public static void main(String[] args) {
 		
 		ExamList list = new ExamList();
-		//여기에 있는 부분들도 ExamList클래스가 변경되면 영향을 받기 때문에 초기화도 해당 클래스에서 해줘야됨
-		//list.exams = new Exam[3];
-		//list.current = 0;
-		ExamList.init(list); //변수 생성 및 초기화도 해당 클래스에서 해라
+		list.init();
 		
 		int menu;
         boolean keepLoop = true;			
@@ -21,10 +18,12 @@ public class Program {
 			menu = inputMenu();
 	        switch(menu) {
 	        case 1:	        	
-				ExamList.inputLIst(list);//함수를 다른 클래스에 넣어놨기 때문에 Examlist.로 어디있는 함수를 사용할건지 알려줘야됨
+				//ExamList.inputLIst(list); static 전통적인 함수
+	        	list.inputLIst(); // 인스턴스 메소드
 		        break;
 	        case 2:		        
-	        	ExamList.printList(list);	        	
+	        	//ExamList.printList(list);	 
+	        	list.printList();
 		        break;
 	        case 3:
 	        	System.out.println("Bye~~");	        	
