@@ -6,7 +6,8 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		ExamList list = new ExamList();
+		//ExamList list = new ExamList(); 이제 더이상 ExamList에서 함수들을 가져오지 않음
+		ExamConsole list = new ExamConsole();
 		
 		int menu;
         boolean keepLoop = true;			
