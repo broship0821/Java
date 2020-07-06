@@ -2,7 +2,7 @@ package part3.ex5.추상화;
 
 import java.util.Scanner;
 
-public class ExamConsole {
+public abstract class ExamConsole {
 	
 	private ExamList list;// = new ExamList();
 	
@@ -10,7 +10,7 @@ public class ExamConsole {
 		list = new ExamList();
 	}
 
-	public void inputLIst() {
+	public void input() {
 		Scanner scan = new Scanner(System.in);
 
 		System.out.println("┌───────────────┐");
@@ -47,7 +47,14 @@ public class ExamConsole {
 
 		} while (math < 0 || 100 < math);
 
-		Exam exam = new Exam(kor, eng, math);
+		//Exam exam = new Exam(kor, eng, math); //exam은 뼈대라 사용하면 안됨
+		//펙토리 메소드
+		Exam exam = makeExam(); // 이런 추상 메소드를 또 만듬	
+		//이건 매개변수를 통해 대입 못하니 setters써야됨
+		exam.setKor(kor);
+		exam.setEng(eng);
+		exam.setMath(math);
+		
 		
 		// 위에는 입력하는 기능, 밑에는 데이터를 추가하는 기능----------------------------
 		list.add(exam);
@@ -55,11 +62,15 @@ public class ExamConsole {
 	}
 	
 	
-	public void printList() {
-		printList(list.size());
+	protected abstract Exam makeExam();
+	// 추상 메소드는 추상 클래스에서만 사용 가능
+	
+
+	public void print() {
+		print(list.size());
 	}
 
-	public void printList(int size) {
+	public void print(int size) {
 		System.out.println("┌───────────────┐");
 		System.out.println("│           성적  출력                  │");
 		System.out.println("└───────────────┘");

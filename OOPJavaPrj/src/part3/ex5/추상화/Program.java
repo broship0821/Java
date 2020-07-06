@@ -4,8 +4,11 @@ public class Program {
 
 	public static void main(String[] args) {
 
-		PeterSchoolExam exam = new PeterSchoolExam();
-
+		//Exam exam = new PeterSchoolExam();
+		
+		ExamConsole console = new PeterSchoolExamConsole();
+		console.input();
+		console.print();
 	}
 
 }
