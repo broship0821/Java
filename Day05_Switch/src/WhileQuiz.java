@@ -16,7 +16,7 @@ public class WhileQuiz {
 		x = sc.nextInt();
 		System.out.print("정수 2 입력: ");
 		y = sc.nextInt();
-		
+		//큰값을 x로 swap
 		if(x>y) {
 			int tmp = y;
 			y = x;
