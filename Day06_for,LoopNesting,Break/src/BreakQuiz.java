@@ -20,45 +20,83 @@ public class BreakQuiz {
 		int correct = 0;
 		int wrong = 0;
 		
-		while(true) {
+//		while(true) {
+//			
+//			int cal = (int) (Math.random()*2);
+//			int num1 = (int) (Math.random()*100) + 1;
+//			int num2 = (int) (Math.random()*100) + 1;
+//			
+//			if(cal==0) {
+//				System.out.printf("%d + %d = ???\n", num1, num2);
+//				System.out.print("답: ");
+//				int answer = sc.nextInt();
+//				if(answer == 0) {
+//					System.out.println("프로그램을 종료합니다.");
+//					break;
+//				}
+//				else if(answer == num1+num2) {
+//					System.out.println("정답입니다!");
+//					correct++;
+//				}
+//				else {
+//					System.out.println("오답입니다");
+//					wrong++;
+//				}
+//			}
+//			else {
+//				System.out.printf("%d - %d = ???\n", num1, num2);
+//				System.out.print("답: ");
+//				int answer = sc.nextInt();
+//				if(answer == 0) {
+//					System.out.println("프로그램을 종료합니다.");
+//					break;
+//				}
+//				else if(answer == num1-num2) {
+//					System.out.println("정답입니다!");
+//					correct++;
+//				}
+//				else {
+//					System.out.println("오답입니다");
+//					wrong++;
+//				}
+//			}
+//		}
+//		System.out.println("-----------------");
+//		System.out.printf("정답 횟수: %d회\n", correct);
+//		System.out.printf("오답 횟수: %d회\n", wrong);
+		
+		//-----------------------------------------------------------------------------------
+		
+while(true) {
 			
 			int cal = (int) (Math.random()*2);
 			int num1 = (int) (Math.random()*100) + 1;
 			int num2 = (int) (Math.random()*100) + 1;
 			
+			int math; //이렇게 변수 사용하면 중복 줄일 수 있음
+			
 			if(cal==0) {
 				System.out.printf("%d + %d = ???\n", num1, num2);
-				System.out.print("답: ");
-				int answer = sc.nextInt();
-				if(answer == 0) {
-					System.out.println("프로그램을 종료합니다.");
-					break;
-				}
-				else if(answer == num1+num2) {
-					System.out.println("정답입니다!");
-					correct++;
-				}
-				else {
-					System.out.println("오답입니다");
-					wrong++;
-				}
+				math = num1 + num2;
 			}
 			else {
 				System.out.printf("%d - %d = ???\n", num1, num2);
-				System.out.print("답: ");
-				int answer = sc.nextInt();
-				if(answer == 0) {
-					System.out.println("프로그램을 종료합니다.");
-					break;
-				}
-				else if(answer == num1-num2) {
-					System.out.println("정답입니다!");
-					correct++;
-				}
-				else {
-					System.out.println("오답입니다");
-					wrong++;
-				}
+				math = num1 - num2;
+			}
+			
+			System.out.print("답: ");
+			int answer = sc.nextInt();
+			if(answer == 0) {
+				System.out.println("프로그램을 종료합니다.");
+				break;
+			}
+			else if(answer == math) {
+				System.out.println("정답입니다!");
+				correct++;
+			}
+			else {
+				System.out.println("오답입니다");
+				wrong++;
 			}
 		}
 		System.out.println("-----------------");
