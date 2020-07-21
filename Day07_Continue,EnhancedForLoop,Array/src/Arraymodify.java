@@ -23,12 +23,20 @@ public class Arraymodify {
 //			}
 //		}
 		//없는 음식 검색했을때 없는 음식입니다 라고 출력하기!!!!!!
+		
+		int flag = 0;
+		
 		for(int i=0;i<foods.length;i++) {
 			if(foods[i].equals(name)) {
 				System.out.println("탐색 완료!");
 				System.out.println(name + "의 인덱스 번호: " + i + "번");
 				break;
 			}
+			flag++;
+		}
+		
+		if(flag == foods.length) {
+			System.out.println("없는 음식입니다.");
 		}
 		
 	}
