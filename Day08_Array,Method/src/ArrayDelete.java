@@ -6,7 +6,7 @@ public class ArrayDelete {
 	public static void main(String[] args) {
 
 		int[] arr = {1,3,5,7,9,11,13};
-		//arr의 7을 바꾸기
+		//arr의 7을 지우기
 		/*
 		 arr[3] = arr[4]
 		 arr[4] = arr[5]
@@ -22,7 +22,7 @@ public class ArrayDelete {
 		//arr보다 하나 작은 배열 하나 생성
 		int[] temp = new int[arr.length-1];
 		//arr의 값을 temp로 이동
-		for(int i=0;i<temp.length;i++) {
+		for(int i=0;i<temp.length;i++) { //다 말고 temp.length만큼만 옮기기
 			temp[i] = arr[i];
 		}
 		System.out.println(Arrays.toString(temp));
