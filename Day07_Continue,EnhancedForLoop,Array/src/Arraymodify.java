@@ -22,6 +22,9 @@ public class Arraymodify {
 //				food = "핫도그";
 //			}
 //		}
+		
+		
+		
 		//없는 음식 검색했을때 없는 음식입니다 라고 출력하기!!!!!!
 		
 		int flag = 0;
@@ -36,6 +39,51 @@ public class Arraymodify {
 		}
 		
 		if(flag == foods.length) {
+			System.out.println("없는 음식입니다.");
+		}
+		
+		
+		//다른 방법------------------------------------------------------
+		for(int i=0;i<foods.length;i++) {
+			if(foods[i].equals(name)) {
+				System.out.println("탐색 완료!");
+				System.out.println(name + "의 인덱스 번호: " + i + "번");
+				break;
+			}else if(i == foods.length-1) {
+				System.out.println("없는 음식입니다.");
+			}
+		}
+		
+		
+		//다른 방법------------------------------------------------------
+		int i;
+		
+		for(i=0;i<foods.length;i++) {
+			if(foods[i].equals(name)) {
+				System.out.println("탐색 완료!");
+				System.out.println(name + "의 인덱스 번호: " + i + "번");
+				break;
+			}
+		}
+		
+		if(i == foods.length) {
+			System.out.println("없는 음식입니다.");
+		}
+		
+		
+		//다른 방법------------------------------------------------------
+		boolean bool = true;
+		
+		for(i=0;i<foods.length;i++) {
+			if(foods[i].equals(name)) {
+				System.out.println("탐색 완료!");
+				System.out.println(name + "의 인덱스 번호: " + i + "번");
+				bool = false;
+				break;
+			}
+		}
+		
+		if(bool) {
 			System.out.println("없는 음식입니다.");
 		}
 		
