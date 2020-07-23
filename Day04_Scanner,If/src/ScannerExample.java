@@ -17,7 +17,7 @@ public class ScannerExample {
 		 - next + 기본타입이름(): 해당 타입에 맞는 문자열을 입력받음
 		 ex) 
 		 	nextInt(): 정수 데이터 입력받음
-		 	nestDouble(): 실수 데이터 입력받음
+		 	nextDouble(): 실수 데이터 입력받음
 		 */
 
 		System.out.print("이름을 입력하세요: ");
