@@ -4,8 +4,8 @@ public class RSP {
 
 	public static void main(String[] args) {
 		
-		//¹®ÀÚ¿­·Î ÀÌ·ç¾îÁø Á¤¼ö¸¦ ½ÇÁ¦ Á¤¼ö·Î º¯È¯ÇÏ´Â ¹æ¹ı
-		//Integer.parseInt(¹®ÀÚ¿­ or ¹®ÀÚ¿­ÀÌ µé¾îÀÖ´Â º¯¼ö)
+		//ë¬¸ìì—´ë¡œ ì´ë£¨ì–´ì§„ ì •ìˆ˜ë¥¼ ì‹¤ì œ ì •ìˆ˜ë¡œ ë³€í™˜í•˜ëŠ” ë°©ë²•.
+		//Integer.parseInt(ë¬¸ìì—´ or ë¬¸ìì—´ì´ ë“¤ì–´ìˆëŠ” ë³€ìˆ˜)
 //		String s1 = "10";
 //		String s2 = "34";
 //		System.out.println(s1 + s2);
@@ -16,23 +16,23 @@ public class RSP {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("*** °¡À§ ¹ÙÀ§ º¸ °ÔÀÓ ***");
-		System.out.print("ÄÚÀÎÀ» ³Ö¾îÁÖ¼¼¿ä: ");
+		System.out.println("*** ê°€ìœ„ ë°”ìœ„ ë³´ ê²Œì„ ***");
+		System.out.print("ì½”ì¸ ì…ë ¥: ");
 		int coin = sc.nextInt();
 		int win = 0;
 		int loose = 0;
 		int tie = 0;
 		
-		System.out.println("ÇØ´çÇÏ´Â ¸Ş´ºÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+		System.out.println("ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš”.");
 		
 		outer: while(true) {
-			System.out.printf("ÇöÀç ÄÚÀÎÀÇ ¼ö: %d\n", coin);
+			System.out.printf("í˜„ì¬ ì½”ì¸ ê°¯ìˆ˜: %d\n", coin);
 			
 			System.out.println("--------------------------------");
-			System.out.println("1. °¡À§¹ÙÀ§º¸ °ÔÀÓ ½ÃÀÛ");
-			System.out.println("2. ÀüÀû º¸±â");
-			System.out.println("3. ÄÚÀÎ ÅõÀÔÇÏ±â");
-			System.out.println("4. ÇÁ·Î±×·¥ Á¾·á");
+			System.out.println("1. ê°€ìœ„ ë°”ìœ„ ë³´ ê²Œì„ ì‹¤í–‰");
+			System.out.println("2. ìŠ¹ë¥  ë³´ê¸°");
+			System.out.println("3. ì½”ì¸ ì¶”ê°€");
+			System.out.println("4. í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
 			System.out.println("--------------------------------");
 			System.out.print("> ");
 			int menu = sc.nextInt();
@@ -40,73 +40,78 @@ public class RSP {
 			
 			
 			switch(menu) {
-			case 1:
+			case 1: //ê°€ìœ„ë°”ìœ„ë³´ ê²Œì„ ì‹¤í–‰
 				
 				while(true) {
+					//ì œì¼ ë¨¼ì € ì½”ì¸ ê°¯ìˆ˜ í™•ì¸
+					if(coin<=0) {
+						System.out.println("--------------------------------");
+						System.out.println("ì½”ì¸ì´ ë‹¤ ë–¨ì–´ì¡ŒìŠµë‹ˆë‹¤.");
+						System.out.println("ê³„ì† í•˜ì‹œë ¤ë©´ ì½”ì¸ì„ ì…ë ¥í•˜ì„¸ìš”.");
+						System.out.println("ê·¸ë§Œ í•˜ì‹œê³  ì‹¶ìœ¼ë©´ 'ê·¸ë§Œ'ì„ ì…ë ¥í•˜ì„¸ìš”.");
+						System.out.print("> ");
+						String ask = sc.next();
+						if(ask.equals("ê·¸ë§Œ")) {
+							System.out.println("ê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
+							break;
+						}
+						else {
+							coin = Integer.parseInt(ask);
+							System.out.printf("ì½”ì¸ %dê°œ ì¶”ê°€.\n", coin);
+						}
+					}
+					
+					
+					//ì½”ì¸ ìˆì„ì‹œ ê²Œì„ ì‹¤í–‰
 					System.out.println();
 					System.out.println("--------------------------------");
-					System.out.println("°¡À§, ¹ÙÀ§, º¸ Áß¿¡ ÇÏ³ª¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
-					System.out.println("°ÔÀÓÀ» ³¡³»°í ½ÍÀ¸½Ã¸é '±×¸¸' ÀÌ¶ó°í ÀÔ·ÂÇÏ¼¼¿ä.");
+					System.out.println("ê°€ìœ„, ë°”ìœ„, ë³´ ì¤‘ í•˜ë‚˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+					System.out.println("ê·¸ë§Œí•˜ê³  ì‹¶ìœ¼ì‹œë©´ 'ê·¸ë§Œ'ì„ ì…ë ¥í•˜ì„¸ìš”.");
 					System.out.print("> ");
 					String rsp = sc.next();
 					
 					int mine = 0;
-					if(rsp.equals("°¡À§")) {
+					if(rsp.equals("ê°€ìœ„")) {
 						mine = 0;
 					}
-					else if(rsp.equals("¹ÙÀ§")) {
+					else if(rsp.equals("ë°”ìœ„")) {
 						mine = 1;
 					}
-					else if(rsp.equals("º¸")) {
+					else if(rsp.equals("ë³´")) {
 						mine = 2;
 					}
-					else if(rsp.equals("±×¸¸")){
-						System.out.println("°¡À§¹ÙÀ§º¸ °ÔÀÓ Á¾·á!");
+					else if(rsp.equals("ê·¸ë§Œ")){
+						System.out.println("ê°€ìœ„ë°”ìœ„ë³´ ê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤!");
 						break;
 					}
 					
 					int com = (int) (Math.random()*3);
 					if(com==0) {
-						System.out.println("ÄÄÇ»ÅÍ°¡ ³½ °ÍÀº °¡À§!");
+						System.out.println("ì»´í“¨í„°ê°€ ê°€ìœ„ë¥¼ ëƒˆìŠµë‹ˆë‹¤!");
 					}
 					else if(com==1) {
-						System.out.println("ÄÄÇ»ÅÍ°¡ ³½ °ÍÀº ¹ÙÀ§!");
+						System.out.println("ì»´í“¨í„°ê°€ ë°”ìœ„ë¥¼ ëƒˆìŠµë‹ˆë‹¤!");
 					}
 					else if(com==2) {
-						System.out.println("ÄÄÇ»ÅÍ°¡ ³½ °ÍÀº º¸!");
+						System.out.println("ì»´í“¨í„°ê°€ ë³´ë¥¼ ëƒˆìŠµë‹ˆë‹¤!");
 					}
 					
 					System.out.println("--------------------------------");
 					if(com==mine) {
-						System.out.println("ºñ°å½À´Ï´Ù.");
+						System.out.println("ë¹„ê²¼ìŠµë‹ˆë‹¤.");
 						tie++;
 					}
 					else if((mine==0&&com==2) || (mine==1&&com==0) || (mine==2&&com==1)) {
-						System.out.println("ÀÌ°å½À´Ï´Ù.");
+						System.out.println("ì´ê²¼ìŠµë‹ˆë‹¤.");
 						win++;
 					}
 					else {
-						System.out.println("Á³½À´Ï´Ù.");
+						System.out.println("ì¡ŒìŠµë‹ˆë‹¤.");
 						loose++;
 					}
 					
-					System.out.printf("³²Àº ÄÚÀÎ: %d\n", --coin);
-					if(coin==0) {
-						System.out.println("--------------------------------");
-						System.out.println("ÄÚÀÎÀÌ ´Ù ¶³¾îÁ³½À´Ï´Ù.");
-						System.out.println("°ÔÀÓÀ» °è¼Ó ÇÏ½Ã·Á¸é ÄÚÀÎÀ» ´õ ³Ö¾îÁÖ¼¼¿ä.");
-						System.out.println("°ÔÀÓÀ» ±×¸¸ µÎ°í ¸Ş´º·Î µ¹¾Æ°¡½Ã·Á¸é '±×¸¸'ÀÌ¶ó°í ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
-						System.out.print("> ");
-						String ask = sc.next();
-						if(ask.equals("±×¸¸")) {
-							System.out.println("¸Ş´º·Î µ¹¾Æ°©´Ï´Ù.");
-							break;
-						}
-						else {
-							coin = Integer.parseInt(ask);
-							System.out.printf("ÄÚÀÎÀ» %d°³ Ãß°¡ÇÕ´Ï´Ù.\n", coin);
-						}
-					}
+					System.out.printf("ë‚¨ì€ ì½”ì¸: %d\n", --coin);
+					
 					
 				}
 				break;
@@ -114,35 +119,35 @@ public class RSP {
 				
 				System.out.println();
 				System.out.println("--------------------------------");
-				System.out.println("*** °ÔÀÓ °á°ú ***");
-				System.out.printf("ÀÌ±ä È½¼ö: %dÈ¸\n", win);
-				System.out.printf("ºñ±ä È½¼ö: %dÈ¸\n", tie);
-				System.out.printf("Áø È½¼ö: %dÈ¸\n", loose);
+				System.out.println("*** ìŠ¹ë¥  ***");
+				System.out.printf("ì´ê¹€: %díšŒ\n", win);
+				System.out.printf("ë¹„ê¹€: %díšŒ\n", tie);
+				System.out.printf("ì§: %díšŒ\n", loose);
 				System.out.println("--------------------------------");
 				break;
 			case 3:
 				System.out.println();
 				System.out.println("--------------------------------");
-				System.out.println("ÄÚÀÎÀ» ³Ö¾îÁÖ¼¼¿ä.");
+				System.out.println("ì½”ì¸ì„ ì¶”ê°€í•˜ì„¸ìš”.");
 				System.out.print("> ");
 				int plus = sc.nextInt();
-				System.out.printf("%d°³ÀÇ ÄÚÀÎÀ» ³Ö¾ú½À´Ï´Ù.\n", plus);
+				System.out.printf("%dì½”ì¸ì´ ì¶”ê°€ëìŠµë‹ˆë‹¤.\n", plus);
 				coin += plus;
 				break;
 			case 4:
-				System.out.println("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù. [Y / N]");
+				System.out.println("ì •ë§ í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ? [Y / N]");
 				System.out.print("> ");
 				char end = sc.next().charAt(0);
 				if(end=='Y' || end=='y') {
 					break outer;
 				}
 				else {
-					System.out.println("Á¾·á¸¦ Ãë¼ÒÇÕ´Ï´Ù.");
+					System.out.println("í”„ë¡œê·¸ë¨ ì¢…ë£Œë¥¼ ì·¨ì†Œí•©ë‹ˆë‹¤");
 				}
 				break;
-			}//¸Ş´º
+			}
 			
-		} //ÀüÃ¼ ÇÁ·Î±×·¥
+		} 
 		sc.close();
 		
 		

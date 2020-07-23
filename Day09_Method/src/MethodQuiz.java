@@ -1,18 +1,18 @@
 /*
- 1. Á¤¼ö¸¦ ÇÏ³ª Àü´Þ¹Þ¾Æ ÇØ´çÇÏ´Â ¼öÀÇ ¾à¼öÀÇ ÃÑÇÕÀ» ±¸ÇØ¼­
- ±× ÃÑÇÕÀ» ¸®ÅÏÇÏ´Â ¸Þ¼­µå¸¦ ¼±¾ð
- 
- 2. ÀÌ ¸Þ¼­µå´Â ¸Å°³°ªÀ¸·Î ¹ÞÀº Á¤¼öÀÇ ¸ðµç ¾à¼ö¸¦ °¡·Î·Î Ãâ·ÂÇÑ ÈÄ
- ±× ¾à¼öµéÀÇ ÃÑÇÕÀ» ¸®ÅÏÇØÁÖ´Â ¸Þ¼­µå
- 
- 3. ¸Þ¼­µå ¼±¾ðÀ» ¿Ï·áÇÑ ÈÄ¿¡ ¸Þ¼­µå¸¦ È£ÃâÇÏ¿©
- 10ÀÇ ¾à¼öÀÇ ÃÑÇÕ, 72ÀÇ ¾à¼öÀÇ ÃÑÇÕÀ» ±¸ÇØº¸±â (calc_divisor)
- */
+		 1. ì •ìˆ˜ë¥¼ í•˜ë‚˜ ì „ë‹¬ë°›ì•„ì„œ í•´ë‹¹í•˜ëŠ” ìˆ˜ì˜ ì•½ìˆ˜ì˜ ì´í•©ì„ êµ¬í•´ì„œ
+		 ê·¸ ì´í•©ì„ ë¦¬í„´í•˜ëŠ” ë©”ì„œë“œë¥¼ ì„ ì–¸í•˜ì„¸ìš”.
+		 
+		 2. ì´ ë©”ì„œë“œëŠ” ë§¤ê°œê°’ìœ¼ë¡œ ë°›ì€ ì •ìˆ˜ì˜ ëª¨ë“  ì•½ìˆ˜ë¥¼ ê°€ë¡œë¡œ ì¶œë ¥í•œ í›„
+		  ê·¸ ì•½ìˆ˜ë“¤ì˜ ì´í•©ì„ ë¦¬í„´í•´ ì£¼ëŠ” ë©”ì„œë“œìž…ë‹ˆë‹¤.
+		  
+		 3. ë©”ì„œë“œ ì„ ì–¸ì„ ì™„ë£Œí•œ í›„ì— ë©”ì„œë“œë¥¼ í˜¸ì¶œí•˜ì—¬
+		 10ì˜ ì•½ìˆ˜ì˜ ì´í•©, 72ì˜ ì•½ìˆ˜ì˜ ì´í•©ì„ êµ¬í•´ë³´ì„¸ìš”. (calc_divisor)
+		 */
 public class MethodQuiz {
 
 	static int calc_divisor(int num) {
 		int total = 0;
-		System.out.printf("%dÀÇ ¾à¼ö: ", num);
+		System.out.printf("%dì˜ ì•½ìˆ˜: ", num);
 		for(int i=1;i<=num;i++) {
 			if(num % i == 0) {
 				total += i;
@@ -24,8 +24,8 @@ public class MethodQuiz {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("10ÀÇ ¾à¼öÀÇ ÃÑÇÕ: " + calc_divisor(10));
-		System.out.println("72ÀÇ ¾à¼öÀÇ ÃÑÇÕ: " + calc_divisor(72));
+		System.out.println("10ì˜ ì•½ìˆ˜ë“¤ì˜ í•©: " + calc_divisor(10));
+		System.out.println("72ì˜ ì•½ìˆ˜ë“¤ì˜ í•©: " + calc_divisor(72));
 
 	}
 
