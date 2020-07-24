@@ -46,8 +46,8 @@ public class RSP {
 					//제일 먼저 코인 갯수 확인
 					if(coin<=0) {
 						System.out.println("--------------------------------");
-						System.out.println("코인이 다 떨어졌습니다.");
-						System.out.println("계속 하시려면 코인을 입력하세요.");
+						System.out.println("코인이 없습니다.");
+						System.out.println("게임을 하시려면 코인을 입력하세요.");
 						System.out.println("그만 하시고 싶으면 '그만'을 입력하세요.");
 						System.out.print("> ");
 						String ask = sc.next();
@@ -82,8 +82,16 @@ public class RSP {
 					}
 					else if(rsp.equals("그만")){
 						System.out.println("가위바위보 게임을 종료합니다!");
+						System.out.println("--------------------------------");
 						break;
 					}
+					else {
+						System.out.println("정확한 값을 입력하세요!");
+						continue; //case1으로 감
+					}
+					
+					
+					
 					
 					int com = (int) (Math.random()*3);
 					if(com==0) {
@@ -110,7 +118,7 @@ public class RSP {
 						loose++;
 					}
 					
-					System.out.printf("남은 코인: %d\n", --coin);
+					System.out.printf("남은 코인: %d개\n", --coin);
 					
 					
 				}
@@ -119,13 +127,15 @@ public class RSP {
 				
 				System.out.println();
 				System.out.println("--------------------------------");
-				System.out.println("*** 승률 ***");
+				System.out.println("*** 게임 결과 ***");
 				System.out.printf("이김: %d회\n", win);
 				System.out.printf("비김: %d회\n", tie);
 				System.out.printf("짐: %d회\n", loose);
 				System.out.println("--------------------------------");
 				break;
+				
 			case 3:
+				
 				System.out.println();
 				System.out.println("--------------------------------");
 				System.out.println("코인을 추가하세요.");
@@ -134,6 +144,7 @@ public class RSP {
 				System.out.printf("%d코인이 추가됐습니다.\n", plus);
 				coin += plus;
 				break;
+				
 			case 4:
 				System.out.println("정말 프로그램을 종료하시겠습니까? [Y / N]");
 				System.out.print("> ");
@@ -145,9 +156,14 @@ public class RSP {
 					System.out.println("프로그램 종료를 취소합니다");
 				}
 				break;
-			}
+				
+				
+			default:
+				System.out.println("메뉴를 잘못 입력하셨습니다.");
+				
+			}//switch
 			
-		} 
+		} //outer while
 		sc.close();
 		
 		
