@@ -22,9 +22,9 @@ public class MemberLocalVariable {
 	
 	void printNumber(int c) { //매개 변수
 		int b=0; //지역 변수
-		System.out.println("멤버 변수: " + a);
+		System.out.println("멤버 변수: " + a); //멤버 변수는 자동 초기화
 		System.out.println("지역 변수: " + b); //지역변수는 초기화 시켜줘야 사용 가능
-		System.out.println("매개 변수: " + c);
+		System.out.println("매개 변수: " + c); //매개변수는 값을 받지 않으면 메서드 실행조차 안되기 때문에 초기화 할필요 옶음
 		
 	}
 	
