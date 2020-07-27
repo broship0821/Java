@@ -18,50 +18,65 @@ import java.util.Arrays;
 
 public class Solution {
 	
-	static int solution(int[] commands) {
-		int a = commands[0];
-		int b = commands[1];
-		int c = commands[2];
+	static int[] solution(int[] array, int[][] commands) {
 		
-		int[] arr = {1, 5, 2, 6, 3, 7, 4};
+		//array = {1, 5, 2, 6, 3, 7, 4};
+		//return할 배열
+		int[] answer = new int[commands.length];
 		
-		//a번째부터 b번째까지 짤라서 새로운 배열에 넣기
-		int[] temp = new int[b-a+1];
-		
-		for(int i=0;i<temp.length;i++) {
-			temp[i] = arr[a-1+i];
-		}
-		System.out.println(Arrays.toString(temp)); //[5, 2, 6, 3]
-		
-		//위에서 나온 배열 정렬하기
-		for(int i=0;i<temp.length;i++) {
-			for(int j=i+1;j<temp.length;j++) {
-				if(temp[i]>temp[j]) {
-					int tem = temp[j];
-					temp[j] = temp[i];
-					temp[i] = tem;
+		for(int k=0;k<commands.length;k++) {
+			
+			int a = commands[k][0];
+			int b = commands[k][1];
+			int c = commands[k][2];
+			
+			
+			//a번째부터 b번째까지 짤라서 새로운 배열에 넣기
+			int[] temp = new int[b-a+1];
+			
+			for(int i=0;i<temp.length;i++) {
+				temp[i] = array[a-1+i];
+			}
+			//System.out.println(Arrays.toString(temp)); //[5, 2, 6, 3]
+			
+			//위에서 나온 배열 정렬하기
+			for(int i=0;i<temp.length;i++) {
+				for(int j=i+1;j<temp.length;j++) {
+					if(temp[i]>temp[j]) {
+						int tem = temp[j];
+						temp[j] = temp[i];
+						temp[i] = tem;
+					}
 				}
 			}
+			//System.out.println(Arrays.toString(temp)); //[2, 3, 5, 6]
+			
+			//c번째 숫자 추출해서 리턴하기
+			int num = temp[c-1];
+			//System.out.println(num);
+			answer[k] = num;
+		
 		}
-		System.out.println(Arrays.toString(temp)); //[2, 3, 5, 6]
-		
-		//c번째 숫자 추출해서 리턴하기
-		int k = temp[c-1];
-		System.out.println(k);
 		
 		
 		
 		
-		
-		
-		return k;
+		return answer;
 	}
 
 	public static void main(String[] args) {
 
-		int[] commands = {1, 7, 3};
-		solution(commands);
+		int[] array = {1, 5, 2, 6, 3, 7, 4};
 		
+		int[][] commands = {{2, 5, 3},{4,4,1},{1,7,3}};
+		
+		int[] answer = solution(array, commands);
+		
+		System.out.println("최종 결과: " + Arrays.toString(answer));
+		
+		
+//		int [][] arr = {{1,2},{3,4},{5,6}};
+//		System.out.println(arr.length);
 		
 	}
 

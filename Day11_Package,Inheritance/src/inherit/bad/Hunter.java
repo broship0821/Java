@@ -14,6 +14,6 @@ public class Hunter {
 		System.out.println("# 레벨: " + level);
 		System.out.println("# 공격력: " + atk);
 		System.out.println("# 체력: " + hp);
-		System.out.println("# 마력: " + pet);
+		System.out.println("# 펫: " + pet);
 	}
 }
