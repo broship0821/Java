@@ -12,6 +12,8 @@ public class MainClass {
 		w1.rage = 100;
 		w1.characterInfo();
 		
+		System.out.println("--------------");
+		
 		Mage m1 = new Mage();
 		m1.name = "마법사";
 		m1.level = 1;
@@ -19,6 +21,8 @@ public class MainClass {
 		m1.hp = 50;
 		m1.mana = 100;
 		m1.characterInfo();
+		
+		System.out.println("--------------");
 		
 		Hunter h1 = new Hunter();
 		h1.name = "사냥꾼";

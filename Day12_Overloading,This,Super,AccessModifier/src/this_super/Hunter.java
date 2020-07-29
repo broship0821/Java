@@ -1,9 +1,18 @@
-package inherit.good;
+package this_super;
 
 public class Hunter extends Player {
 
 	String pet;
 
+	Hunter(){
+		super();
+	}
+	Hunter(String name){
+		super(name);
+		pet = "dragon";
+	}
+	
+	
 	@Override
 	void characterInfo() {
 		super.characterInfo();

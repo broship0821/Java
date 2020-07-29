@@ -9,15 +9,25 @@ package inherit.good;
   	키워드 extends를 쓰고. 물려받을 부모 클래스의 이름을 적으면 됨
  */
 
-public class Warrior extends Player{
+public class Warrior extends Player{ //extends가 전제가 되야됨
 
 	//Player의 모든 데이터 받아오고 새로 추가되는 데이터만 작성
 	int rage;
-	
+
+	@Override//Alt+Shift+s -> override/implements methods
 	void characterInfo() {
-		//부모 클래스의 메서드를 먼저 실행되게 하고 추가되는 부분만 작성
 		super.characterInfo();
 		System.out.println("# 분노: " + rage);
 	}
+	
+//	void characterInfo() {
+//		//부모 클래스의 메서드를 먼저 실행되게 하고 추가되는 부분만 작성
+//		super.characterInfo();
+//		System.out.println("# 분노: " + rage);
+//	}
+	
+	//리턴 타입이 같아야됨
+	//메서드 이름이 똑같아야됨
+	//매개변수가 완전히 일치해야됨
 	
 }
