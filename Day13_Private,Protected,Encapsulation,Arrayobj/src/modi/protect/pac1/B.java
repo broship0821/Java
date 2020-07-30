@@ -1,0 +1,22 @@
+package modi.protect.pac1;
+
+public class B {
+
+	A a1 = new A(30); //protected
+	A a2 = new A(3.14); //p.f
+	
+	public B() {
+		a1.x = 1;
+		a1.y = 2;
+		
+		a1.method1();
+		a1.method2();
+		
+		a2.x = 1;
+		a2.y = 2;
+		
+		a2.method1();
+		a2.method2();
+	}
+	
+}
