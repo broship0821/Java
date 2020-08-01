@@ -12,7 +12,8 @@ public class Program {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		
 		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
-		String sql = "SELECT * FROM NOTICE";
+		String sql = "SELECT * FROM NOTICE WHERE HIT>=10";
+		//자바에 if문써서 가져오는 방법도 있지만 sql문장써서 먼저 필터링하고, 그 결과를 자바에서는 사용만 하는게 효율적임
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "peter", "0821"); //아이디 비번 까먹음
@@ -33,8 +34,8 @@ public class Program {
 			System.out.printf("regDate: %s\n", regDate);
 			System.out.printf("content: %s\n", content);
 			System.out.printf("hit: %d\n", hit);
-			
 			System.out.println("------------------");
+			
 		}
 		
 		rs.close();
