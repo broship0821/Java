@@ -37,6 +37,8 @@ public class MainClass {
 		 본래의 멤버(멤버변수, 메서드)를 참조하지 못하는 문제가 발생
 		 
 		 이를 해결하기 위하여 강제 타입 변환(Downcasting)을 사용
+		 
+		 웹에 객체를 주고 받을때 Object 객체로 받는데 그때 형변환 후 사용해야됨
 		 */
 		Child c2 = (Child) p2; //c2이랑 p2는 같은 객체임, 같은 주소 공유
 		c2.n2 = 1;
@@ -52,7 +54,6 @@ public class MainClass {
 		//다형성이 한 번도 발생하지 않은 객체는 강제 형 변환을 시킬 수 없음
 		
 //		Child c3 = (Child) p; //Child c3 = new Parent();
-		
 		
 		
 	}
