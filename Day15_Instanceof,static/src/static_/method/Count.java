@@ -25,7 +25,7 @@ public class Count {
 	public static int method2() {
 //		return this.a + Count.b;
 		//static 메서드는 객체 생성 없이도 사용 가능하기에
-		//this는 사용할 수 없음
+		//this는 사용할 수 없음(this는 생성 후에만 사용 가능)
 		Count ccc = new Count();
 		return ccc.a + Count.b; //Count. 이건 생략 가능
 	}

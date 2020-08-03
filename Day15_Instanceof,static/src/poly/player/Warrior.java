@@ -29,26 +29,24 @@ public class Warrior extends Player{
 	 */
 	
 	public void rush(Player player) {
-		int damage;
+		int damage = 0;
 		
 		System.out.printf("%s님이 %s님에게 돌진을 시전하였습니다.\n", name, player.name);
 		
 		if(player instanceof Warrior) {
 			damage = 10;
-			player.hp -= damage;
 			System.out.printf("%s(%s)님이 %d의 피해를 입었습니다.\n", player.name, player.job, damage);
 		}
 		else if(player instanceof Mage) {
 			damage = 20;
-			player.hp -= damage;
 			System.out.printf("%s(%s)님이 %d의 피해를 입었습니다.\n", player.name, player.job, damage);
 		}
 		else if(player instanceof Hunter) {
 			damage = 15;
-			player.hp -= damage;
 			System.out.printf("%s(%s)님이 %d의 피해를 입었습니다.\n", player.name, player.job, damage);
 		}
 		
+		player.hp -= damage;
 		System.out.printf("%s님의 남은 체력: %d\n", player.name, player.hp);
 		System.out.println("------------------------");
 		

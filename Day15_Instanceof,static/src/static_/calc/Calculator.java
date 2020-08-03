@@ -13,7 +13,7 @@ public class Calculator {
 	 */
 	
 	String color; //각각 다른 색깔을 입혀야 하기 때문에 static 붙이기에 적절하지 않음
-	static double pi = 3.14159265;
+	static double pi = 3.14159265; //원주율은 절대 변하지 않기 때문에 static 붙여도 됨
 	
 	/*
 	 메서드 내부에서 non-static 데이터를 참조하고 있는 메서드는

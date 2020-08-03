@@ -17,6 +17,7 @@ public class LapTop {
 	}
 	
 	public LapTop() {
+		//그냥 생성자 안에는 static, non-static 다 들어올 수 있음
 		System.out.println("생성자 호출");
 		company = "LG";
 		model = "Gram";
