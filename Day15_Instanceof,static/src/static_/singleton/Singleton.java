@@ -10,7 +10,29 @@ public class Singleton {
 	 */
 	private Singleton() {
 		System.out.println("객체가 생성됨");
+	} //이제 외부에서 객체 생성 못함
+	
+	/*
+	 2.  생성자를 호출할 수 있는 영역은 같은 클래스 내부 뿐이므로 자신의
+	 클래스 내부에서 스스로의 객체를 단 1개만 생성함.
+	 */
+	
+	private static Singleton s = new Singleton(); //이 객체는 1개밖에 없음
+	
+	/*
+	 3. 외부에서 이 클래스의 객체를 요구할 때, 2번에서 미리 만들어 놓은
+	 단 하나의 객체의 주소값을 공개된 메서드를 통해 리턴
+	 */
+	
+	public static Singleton getInstance() {
+		return s;
 	}
+	
+	
+	
+	
+	
+	//----------------------------------------------------------------
 	
 	public void method1() {
 		System.out.println("꼭 필요한 메서드");
