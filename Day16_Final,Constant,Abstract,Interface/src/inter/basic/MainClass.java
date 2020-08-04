@@ -7,6 +7,7 @@ public class MainClass {
 //		인터페이스는 객체를 생성할 수 없는 추상적인 개념임(팩토리 패턴)
 //		Inter1 i1 = new Inter1();
 
+		//하지만 그 인터페이스를 상속받은 클래스는 생성할 수 있음
 		System.out.println("1인치: " + Inter1.INCH + "cm");
 		ImplClass1 i1 = new ImplClass1();
 		i1.method1();
@@ -28,12 +29,13 @@ public class MainClass {
 		Inter2 it2 = new ImplClass1();
 		it2.method2();
 		it2.testMethod();
-		//구현 클래스가 두개의 인터페이스와의 서로 상관관계에 있다면
+		//구현 클래스가 두개의 인터페이스와의 서로 상관관계에 있다면(Inter1, implClass1, ImplClass2 다 가능함)
 		//인터페이스 타입에서 다른 인터페이스 타입으로 즉시 형 변환이 가능함
-		((Inter1) it2).method1();
+		((ImplClass2) it2).method1();
 		
-//		Inter1 it3 = new ImplClass3(); (X)
-//		Inter2 it4 = new ImplClass2(); (X)
+//		Inter1 it3 = new ImplClass3(); //(X) 
+//		Inter2 it4 = new ImplClass2(); //(X)
+		//직접적인 관련이 없으면 다형성 적용 불가, 만약 Inter면 전부다 다형성 적용 가능
 		
 		Inter1 it3 = new ImplClass2();
 		Inter2 it4 = new ImplClass3();

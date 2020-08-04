@@ -12,6 +12,7 @@ public class Person {
 	public Person(String name) {
 		this.name = name;
 	}
+	//선언할 때 값을 대입하던지 생성자를 사용하던지 꼭 값은 넣어줘야됨
 	
 	
 	
