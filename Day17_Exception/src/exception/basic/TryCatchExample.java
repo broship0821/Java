@@ -20,6 +20,8 @@ public class TryCatchExample {
 //		System.out.printf("%d / %d = %d\n", i, j, i/j); //에러 발생 지점
 		
 		System.out.println("프로그램 정상 종료");
+		
+		//예외처리 자체는 쉬우나 어떻게 적용시키고 어떻게 보완하는지가 어려움
 
 	}
 

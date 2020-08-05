@@ -5,7 +5,7 @@ public class ImplClass1 implements Inter1, Inter2 {
 
 	/*
 	 1. 인터페이스에 명세된 기능을 사용하려면 클래스에서
-	 해당 인터페이스를 구현해야됨
+	 해당 인터페이스를 구현(상속)해야됨
 	 
 	 2. 인터페이스를 구현하는 키워드는 implements
 	 
@@ -23,19 +23,19 @@ public class ImplClass1 implements Inter1, Inter2 {
 	
 	@Override
 	public void method1() {
-		System.out.println("인터페이스1의 메서드 재정의");
+		System.out.println("Inter1의 메서드 재정의");
 		
 	}
 
 	@Override
 	public void method2() {
-		System.out.println("인터페이스2의 메서드 재정의");
+		System.out.println("Inter2의 메서드 재정의");
 		
 	}
 
 	@Override
 	public void testMethod() {
-		System.out.println("테스트 메서드 재정의");
+		System.out.println("Inter 메서드 재정의");
 		
 	}
 	

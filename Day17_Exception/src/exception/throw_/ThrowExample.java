@@ -33,6 +33,7 @@ public class ThrowExample {
 			System.out.println(result2);
 			
 		} catch (Exception e) {
+			//throw new Exception()로 메서드를 끝내고 경고 문구를 이곳에 작성
 			System.out.println("매개값은 0보다 커야 합니다!");
 		}
 		

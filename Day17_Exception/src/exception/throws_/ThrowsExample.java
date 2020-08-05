@@ -19,6 +19,7 @@ public class ThrowsExample {
 	
 	
 	static void greet(int idx) throws ArrayIndexOutOfBoundsException { //이 메서드를 부르는 메인 함수에 예외처리 떠넘기기
+		//떠넘기면 메인에서는 무조건 예외처리를 진행해야됨
 		System.out.println(greetings[idx]);
 	}
 	
