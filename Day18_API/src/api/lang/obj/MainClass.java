@@ -28,8 +28,6 @@ public class MainClass {
 		else {
 			System.out.println("나이가 다릅니다.");
 		}
-		
-//		System.exit(0);
 
 	}
 
