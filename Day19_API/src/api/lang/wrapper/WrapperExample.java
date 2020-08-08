@@ -12,7 +12,7 @@ public class WrapperExample {
 		char c = 'H';
 		double d = 5.56;
 		
-		//Boxing: 기본 데이터 타입을 참조 타입으로 변환하는 과정
+		//Boxing: 기본 데이터 타입을 참조 타입으로 변환하는 과정, 생략 가능하기 때문에 별로 사용하지 않음
 		Integer v1 = new Integer(a);
 		Boolean v2 = new Boolean(b);
 		Character v3 = new Character(c);
