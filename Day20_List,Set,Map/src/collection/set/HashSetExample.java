@@ -50,8 +50,8 @@ public class HashSetExample {
 		 더 조회할 수 있는지의 여부를 항상 체크해야됨
 		 */
 		
-		while(iter.hasNext()) {
-			System.out.println(iter.next());
+		while(iter.hasNext()) { //set에 더 데이터가 있는지 확인, 데이터 없으면 false 반환
+			System.out.println(iter.next()); //하나씩 꺼내옴
 		}
 		
 		System.out.println("------------------------");
