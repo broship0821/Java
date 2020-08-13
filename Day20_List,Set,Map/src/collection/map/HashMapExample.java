@@ -39,6 +39,7 @@ public class HashMapExample {
 		//map에 저장된 총 객체의 수 얻기: size()
 		System.out.println("map에 저장된 객체 수: " + map.size());
 		
+		System.out.println("----------------------------");
 		//map에 저장된 key들만 전부 추출하는 메서드: keySet()
 		//keySet을 사용하면 map안에 있는 모든 key들이 set으로 포장되서 반환됩니다.
 		Set<String> keys = map.keySet();
