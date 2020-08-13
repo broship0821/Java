@@ -22,17 +22,18 @@ public class MemberDao {
 	
 	//전체 목록을 가져오는 메서드
 	List<Member> selectAll(){
-		ArrayList<Member> ls = new ArrayList<Member>(); //이건 왜 ArrayList로 하고, 또왜 Iterator 써서 while문 썻을까
-		Iterator<Integer> it = db.keySet().iterator();
-		while(it.hasNext()) {
-			ls.add(db.get(it.next()));
-		}
+		ArrayList<Member> ls = new ArrayList<Member>();
+//		Iterator<Integer> it = db.keySet().iterator();
+//		while(it.hasNext()) {
+//			ls.add(db.get(it.next()));
+//		}
+		for()
 		return ls;
 	}
 	
 	//멤버 검색
 	public Member selectMember(String id) {
-		List<Member> ls = new ArrayList<Member>(db.values()); //이건 왜 List로 했을까, 또왜 향상for문 바로 썻을까
+		List<Member> ls = new ArrayList<Member>(db.values());
 		for(Member tmp : ls) {
 			if(tmp.getId().equals(id)){
 				return tmp;

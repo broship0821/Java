@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<form action="notice-reg" method="post">
+		<!-- method를 생략하면 get으로 됨, get은 전달하는 파라미터가 url에 뜨기 때문에 장문의 
+		내용을 전달할 때는 적합하지 않음 그때 method를 post로 하면 url에 뜨지도 않고 길이 제한도 없어짐-->
+			<div>
+				<label>제목: </label><input type="text" name="title"/>
+			</div>
+			<div>
+				<label>내용: </label>
+				<textarea name="content"></textarea>
+			</div>
+			<div>
+				<input type="submit" value="등록" />
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -21,11 +21,19 @@ public class Nana extends HttpServlet {
 		PrintWriter out = response.getWriter();
 //		out.println("okay good123 start now!");
 		
-		int cnt = Integer.parseInt(request.getParameter("cnt"));
+//		int cnt = Integer.parseInt(request.getParameter("cnt"));
 		//http://localhost:8080/hi?cnt=3 이렇게 하면 cnt="3"으로 매개변수 전달 가능
 		//request.getParameter("cnt")이렇게 똑같은 변수를 사용하면 전달받은 매개변수 사용 가능
 		//하지만 무조건 문자열로 오기 때문에 정수형으로 형 변환을 해줘야됨
 		//이 경우 웹에서 cnt값을 무조건 전달해야지만 오류 안남
+		
+		
+		String cnt_ = request.getParameter("cnt");
+		int cnt = 100; //기본값
+		
+		if(cnt_!=null && !cnt_.equals("")) {
+			cnt = Integer.parseInt(cnt_);
+		}
 		
 		for(int i=0;i<cnt;i++) {
 			out.println((i+1) + ": 안녕~!! Servlet!!!이건 아마 깨질꺼야~~ 아 개졸리다 빨리 자고 싶다<br>");
