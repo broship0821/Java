@@ -19,11 +19,11 @@ public class CalcPage extends HttpServlet {
 
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
+		//html을 동적으로 실행시켜주는 페이지
+		Cookie[] cookies = req.getCookies();//일단 쿠키 받고
 		
-		Cookie[] cookies = req.getCookies();
-		
-		String exp = "0";
-		if(cookies!=null) {
+		String exp = "0"; //쿠키에서 받은것이 없으면 0 출력
+		if(cookies!=null) { //쿠키에서 받은것이 있으면 key 값이 exp인 쿠키 찾기
 			for(Cookie c : cookies) {
 				if(c.getName().equals("exp")) {
 					exp = c.getValue();
@@ -61,7 +61,7 @@ public class CalcPage extends HttpServlet {
 		out.write("	<form action=\"calc3\" method=\"post\">");
 			out.write("		<table>");
 			out.write("		<tr>");
-			out.printf("			<td class=\"output\" colspan=\"4\">%s</td>", exp);
+			out.printf("			<td class=\"output\" colspan=\"4\">%s</td>", exp); //전달받은 exp 표시하기
 			out.write("	</tr>");
 			out.write("	<tr>");
 			out.write("		<td><input type=\"submit\" name=\"operator\" value=\"CE\" /></td>");
