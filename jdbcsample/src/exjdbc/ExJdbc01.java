@@ -9,9 +9,23 @@ public class ExJdbc01 {
 
 	public static void main(String[] args) {
 		
+		/*
+		 질문:
+		 	1. 여기서 보낸 쿼리문은 자동 커밋??
+		 	2. 한꺼번에 insert 여러개는 불가능?
+		 */
+		
 		Connection conn = null; //접속객체
 		
 		Statement stmt = null; //쿼리를 전송하고 결과를 반환하는 객체
+		/*
+		 Statement: 적은 쿼리문 실행에 유리
+		 PrepareStatement: 다수 쿼리문 실행에 유리
+		 쿼리문장분석->컴파일->실행 을 거치케 되는데 Statement는 쿼리를 실행할 때마다
+		 전부 실행하고 PrepareStatement는 처음 한번만 3 단계를 거치고 나머지는 캐시에 담아
+		 재사용함, 반복문으로 여러번 쿼리문 실행할때는 PrepareStatement 사용하면됨
+		 */
+		
 		
 		String url = "jdbc:oracle:thin:@192.168.6.128:1521:xe";
 		String username = "scott";
