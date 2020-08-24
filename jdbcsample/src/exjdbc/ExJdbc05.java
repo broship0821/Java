@@ -8,6 +8,8 @@ public class ExJdbc05 {
 
 	public static void main(String[] args) {
 		StringBuffer sql = new StringBuffer();
+		
+		//pstmt는 sql문 먼저 삽입, 삽입때 바인딩 문자 사용 가능
 		sql.append("insert into SUBJECT ");
 		sql.append("values (SUBJECT_SEQ.nextval, ?, ?, ?)"); //?: 바인딩 문자
 		Connection conn = null;
