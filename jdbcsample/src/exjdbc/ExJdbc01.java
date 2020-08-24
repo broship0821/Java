@@ -8,13 +8,7 @@ import java.sql.Statement;
 public class ExJdbc01 {
 
 	public static void main(String[] args) {
-		
-		/*
-		 질문:
-		 	1. 여기서 보낸 쿼리문은 자동 커밋??
-		 	2. 한꺼번에 insert 여러개는 불가능?
-		 */
-		
+					
 		Connection conn = null; //접속객체
 		
 		Statement stmt = null; //쿼리를 전송하고 결과를 반환하는 객체
@@ -48,8 +42,29 @@ public class ExJdbc01 {
 //			sql.append("insert into MEMBER ");
 //			sql.append("values(MEMBER_SEQ.nextval, '" + id + "', '1234', '홍길동', sysdate)");
 			
-			sql.append("commit");
-			System.out.println(sql.toString());
+			//외래키 연습
+//			sql.append("create table SUBJECT (");
+//			sql.append("NUM number primary key,");
+//			sql.append("MEM_NUM number,");
+//			sql.append("SUB_NAME varchar2(20),");
+//			sql.append("SUB_SCORE number(5,2))");
+//			System.out.println(sql.toString());
+			//외래키 제약조건
+//			sql.append("alter table SUBJECT add constraint SUBJECT_FK ");
+//			sql.append("foreign key(MEM_NUM) references MEMBER (NUM)");
+//			System.out.println(sql.toString());
+			//시퀀스 생성
+//			sql.append("create sequence SUBJECT_SEQ ");
+//			sql.append("start with 1 ");
+//			sql.append("increment by 1 ");
+//			sql.append("maxvalue 99999 ");
+//			sql.append("nocache ");
+//			sql.append("nocycle ");
+//			sql.append("noorder ");
+//			System.out.println(sql.toString());
+			//select NAME from MEMBER where NUM=(select MEM_NUM from SUBJECT where SUB_SCORE=99);
+			
+			
 			
 			int result = stmt.executeUpdate(sql.toString()); //엔터의 역활(전송한 쿼리 실행)
 			//executeUpdate: insert, update, delete, create, drop 수행 시 사용 -> 변경된 횟수를 반환
