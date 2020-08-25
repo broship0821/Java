@@ -39,17 +39,17 @@ public class MyJdbcPstmt {
 //		System.out.println(sql.toString());
 		
 		//MEMBER 테이블 조회
-//		sql.append("select * from MEMBER");
+		sql.append("select * from MEMBER");
 		
 		//SUBJECT 테이블에 데이터 삽입
 //		sql.append("insert into SUBJECT ");
 //		sql.append("values (SUBJECT_SEQ.nextval, ?, ?, ?)");
 		
 		//SUBJECT 테이블 조회
-		sql.append("select m.NAME, m.NUM, s.SUB_NAME, s.SUB_SCORE ");
-		sql.append("from MEMBER m, SUBJECT s ");
-		sql.append("where m.NUM = s.MEM_NUM");
-		System.out.println(sql.toString());
+//		sql.append("select m.NAME, m.NUM, s.SUB_NAME, s.SUB_SCORE ");
+//		sql.append("from MEMBER m, SUBJECT s ");
+//		sql.append("where m.NUM = s.MEM_NUM");
+//		System.out.println(sql.toString());
 		
 		try {
 			conn = jdbcTemplate.getConnection();
@@ -58,16 +58,16 @@ public class MyJdbcPstmt {
 //			int n = pstmt.executeUpdate();
 //			System.out.println(n + "개 sql문 실행 성공");
 			
-//			rs = pstmt.executeQuery();
-//			//MEMBER 테이블 조회
-//			while(rs.next()) {
-//				System.out.print(rs.getString(1) + "  \t");
-//				System.out.print(rs.getString(2) + "  \t");
-//				System.out.print(rs.getString(3) + "  \t");
-//				System.out.print(rs.getString(4) + "  \t");
-//				System.out.print(rs.getString(5) + "  \t");
-//				System.out.println();
-//			}
+			rs = pstmt.executeQuery();
+			//MEMBER 테이블 조회
+			while(rs.next()) {
+				System.out.print(rs.getString(1) + "  \t");
+				System.out.print(rs.getString(2) + "  \t");
+				System.out.print(rs.getString(3) + "  \t");
+				System.out.print(rs.getString(4) + "  \t");
+				System.out.print(rs.getString(5) + "  \t");
+				System.out.println();
+			}
 			
 			//SUBJECT 데이터 삽입
 //			pstmt.setInt(1, 1);
@@ -76,15 +76,15 @@ public class MyJdbcPstmt {
 //			pstmt.executeUpdate();
 //			System.out.println("성공!");
 			
-			rs = pstmt.executeQuery();
-			//SUBJECT 테이블 조회
-			while(rs.next()) {
-				System.out.print(rs.getString(1) + "  \t");
-				System.out.print(rs.getInt(2) + "  \t");
-				System.out.print(rs.getString(3) + "  \t");
-				System.out.print(rs.getDouble(4) + "  \t");
-				System.out.println();
-			}
+//			rs = pstmt.executeQuery();
+//			//SUBJECT 테이블 조회
+//			while(rs.next()) {
+//				System.out.print(rs.getString(1) + "  \t");
+//				System.out.print(rs.getInt(2) + "  \t");
+//				System.out.print(rs.getString(3) + "  \t");
+//				System.out.print(rs.getDouble(4) + "  \t");
+//				System.out.println();
+//			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
