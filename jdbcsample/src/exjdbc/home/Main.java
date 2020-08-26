@@ -4,8 +4,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
+	
+	static void printAll(MemberDao dao) {
+		// 전체목록보기
+		System.out.println("---------------");
+		List<Member> ret = dao.selectAll();
+		for (Member tmp : ret) {
+			System.out.println(tmp);
+		}
+		System.out.println("---------------");
+	}
 
 	public static void main(String[] args) {
 		
@@ -16,7 +27,7 @@ public class Main {
 		ConnectionUtil jdbcTemplate = ConnectionUtil.getInstance();
 		
 		StringBuffer sql = new StringBuffer();
-		sql.append("select * from MEMBER where NUM=3");
+		sql.append("select * from MEMBER");
 		
 		try {
 			conn = jdbcTemplate.getConnection();
@@ -24,19 +35,19 @@ public class Main {
 			
 			rs = pstmt.executeQuery();
 			
-			Member m1 = new Member();
+			MemberDao dao = new MemberDao();
 			
 			while(rs.next()) {
-				m1.setNum(rs.getInt("NUM"));
-				m1.setId(rs.getString("ID"));
-				m1.setPw(rs.getString("PW"));
-				m1.setName(rs.getString("NAME"));
-				m1.setRegdate(rs.getDate(5));
+				Member m = new Member();
+				m.setNum(rs.getInt("NUM"));
+				m.setId(rs.getString("ID"));
+				m.setPw(rs.getString("PW"));
+				m.setName(rs.getString("NAME"));
+				m.setRegdate(rs.getDate(5));
+				
+				dao.insertMember(m);
 			}
-			System.out.println(m1);
-			//일단 MemberDao도 메인에 만들기
-			//메인에 insert, select등 구현해보고
-			//다른 클래스로 빼보기
+			printAll(dao);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

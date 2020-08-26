@@ -17,7 +17,8 @@
 	리스트 받기: ${list[2]}<br>
 	map 받기: ${map.title}<br>
 	페이지: ${result}<br>
-	파라미터 가져오기: ${param.n }<br>
+	파라미터 가져오기: ${empty param.n ? '값이 비어 있습니다.' : param.n}<br>
+	파라미터 가져오기: ${param.n/2}<br><%--문자열 정수 나눗셈은 소수로 표현됨 --%>
 	헤더 정보 가져오기: ${header.accept }<br>
 </body>
 </html>
