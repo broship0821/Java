@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>jspbasic</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <!-- 디폴트 에러 페이지 설정 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/errors/ex10_error404.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/errors/ex10_error500.jsp</location>
+  </error-page>
+  <!-- 
+  서버에 jsp 파일에 대한 요청이 왔을 때
+  jsp파일 처리 중 에러가 발생되는 경우
+  jsp 파일에 page 디렉티브로 errorPage 속성이 지정되어 있다면
+  지정된 페이지로 응답,
+  지정된 페이지가 없을 경우 위에 설정한 페이지로 응답.
+  아무런 페이지도 지정되지 않았을 경우 디폴트 응답.
+   -->
 </web-app>
