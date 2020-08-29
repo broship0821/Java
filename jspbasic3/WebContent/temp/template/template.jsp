@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String pageTitle = (String)request.getAttribute("PAGE_TITLE");// forwarding, 오브젝트 객체가 가기 때문에 문자열로 보내도 다시 문자열로 형 변환을 해줘야됨
+	String pageTitle = (String)request.getAttribute("PAGE_TITLE");// forwarding
+	//오브젝트 객체가 가기 때문에 문자열로 보내도 다시 문자열로 형 변환을 해줘야됨
 	String contentPage = request.getParameter("CONTENT_PAGE"); // redirect
+	//무조건 문자열(같은 name으로 보내면 배열로감, 그땐 values붙여서 꺼내와야됨)
 %>
 <!DOCTYPE html>
 <html>
