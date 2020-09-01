@@ -88,39 +88,192 @@ public class NoticeService {
 	}
 	//검색된 목록 개수 표시하는 메서드
 	public int getNoticeCount(String field, String query) {
-		String sql ="SELECT * FROM (" + 
+		int count = 0;
+		
+		String sql ="SELECT COUNT(ID) COUNT FROM (" + 
 				"    SELECT ROWNUM NUM, N.*" + 
-				"    FROM (SELECT * FROM NOTICE ORDER BY REGDATE DESC) N" + 
-				") " + 
-				"WHERE NUM BETWEEN 6 AND 10";
-		return 0;
+				"    FROM (SELECT * FROM NOTICE WHERE " + field + " LIKE ? ORDER BY REGDATE DESC) N" + 
+				") ";
+		
+		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url, "peter", "0821");
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, "%"+query+"%");
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) count = rs.getInt("count");
+			
+			rs.close();
+			pstmt.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return count;
 	}
 	//---------------------------------------------------------
 	
 	//클릭된 현재 공지사항 (자세한 페이지 들어갈때 하나의 노티스만 반환)
 	public Notice getNotice(int id) {
+		Notice notice = null;
+		
 		String sql = "SELECT * FROM NOTICE WHERE ID=?";
-		return null;
+		
+		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url, "peter", "0821");
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, id);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int nId = rs.getInt("ID");
+				String title = rs.getString("TITLE");
+				Date regdate = rs.getDate("REGDATE");
+				String writerId = rs.getString("WRITER_ID");
+				int hit = rs.getInt("HIT");
+				String files = rs.getString("FILES");
+				String content = rs.getString("CONTENT");
+				
+				notice = new Notice(
+						nId,
+						title,
+						regdate,
+						writerId,
+						hit,
+						files,
+						content
+						);
+				
+			}
+			rs.close();
+			pstmt.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return notice;
 	}
 	//다음 공지사항
 	public Notice getNextNotice(int id) {
+		Notice notice = null;
+		
 		String sql = "SELECT * FROM NOTICE " + 
 				"WHERE ID=(" + 
-				"    SELECT ID FROM NOTICE WHERE REGDATE > (SELECT REGDATE FROM NOTICE WHERE ID=3) " + 
+				"    SELECT ID FROM NOTICE WHERE REGDATE > (SELECT REGDATE FROM NOTICE WHERE ID=?) " + 
 				"AND ROWNUM=1" + 
 				")";
-		return null;
+
+		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url, "peter", "0821");
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, id);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int nId = rs.getInt("ID");
+				String title = rs.getString("TITLE");
+				Date regdate = rs.getDate("REGDATE");
+				String writerId = rs.getString("WRITER_ID");
+				int hit = rs.getInt("HIT");
+				String files = rs.getString("FILES");
+				String content = rs.getString("CONTENT");
+				
+				notice = new Notice(
+						nId,
+						title,
+						regdate,
+						writerId,
+						hit,
+						files,
+						content
+						);
+				
+			}
+			rs.close();
+			pstmt.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return notice;
 	}
 	//이전 공지사항
 	public Notice getPrevNotice(int id) {
+		Notice notice = null;
+		
 		String sql = "SELECT * FROM NOTICE " + 
 				"WHERE ID=( " + 
 				"    SELECT ID " + 
 				"    FROM (SELECT * FROM NOTICE ORDER BY REGDATE DESC) " + 
-				"    WHERE REGDATE < (SELECT REGDATE FROM NOTICE WHERE ID=3) " + 
+				"    WHERE REGDATE < (SELECT REGDATE FROM NOTICE WHERE ID=?) " + 
 				"    AND ROWNUM=1 " + 
 				")";
-		return null;
+
+		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url, "peter", "0821");
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, id);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int nId = rs.getInt("ID");
+				String title = rs.getString("TITLE");
+				Date regdate = rs.getDate("REGDATE");
+				String writerId = rs.getString("WRITER_ID");
+				int hit = rs.getInt("HIT");
+				String files = rs.getString("FILES");
+				String content = rs.getString("CONTENT");
+				
+				notice = new Notice(
+						nId,
+						title,
+						regdate,
+						writerId,
+						hit,
+						files,
+						content
+						);
+				
+			}
+			rs.close();
+			pstmt.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return notice;
 	}
 	
 }
