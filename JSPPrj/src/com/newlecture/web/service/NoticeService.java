@@ -32,8 +32,8 @@ public class NoticeService {
 				"    FROM (SELECT * FROM NOTICE WHERE " + field + " LIKE ? ORDER BY REGDATE DESC) N" + 
 				") " + 
 				"WHERE NUM BETWEEN ? AND ?";
-		//등차수열: 1, 6, 11, 16 -> an= 1+(page-1)*5
-		//한 페이지당 5개씩: 5, 10, 15, 20 -> page*5
+		//두번째? 등차수열: 1, 6, 11, 16 -> an= 1+(page-1)*5
+		//세번째? 한 페이지당 5개씩: 5, 10, 15, 20 -> page*5
 		
 		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
 		
