@@ -187,7 +187,7 @@
 					<c:forEach var="n" items="${list }">
 						<tr>
 							<td>${n.id }</td>
-							<td class="title indent text-align-left"><a href="detail?id=${n.id }">${n.title }</a></td>
+							<td class="title indent text-align-left"><a href="detail?id=${n.id }">${n.title }</a><span>[댓글: ${n.cmtCount }]</span></td>
 							<td>${n.writerId }</td>
 							<td><fmt:formatDate pattern="yyyy년MM월dd일" value="${n.regdate }"/></td>
 							<td><fmt:formatNumber type="number" value="${n.hit}" /></td>

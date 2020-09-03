@@ -10,26 +10,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.newlecture.web.entity.Notice;
+import com.newlecture.web.entity.NoticeView;
 
 public class NoticeService {
 
 	//목록을 표시하는 메서드(초기값, 기본값)
-	public List<Notice> getNoticeList() {
+	public List<NoticeView> getNoticeList() {
 		
 		return getNoticeList("title", "", 1);
 	}
 	//클릭된 해당 페이지를 표시하는 메서드
-	public List<Notice> getNoticeList(int page) {
+	public List<NoticeView> getNoticeList(int page) {
 		
 		return getNoticeList("title", "", page);
 	}
 	//검색을 통한 페이지를 표시하는 메서드
 	//오버로딩 메서드라 맨 밑에것만 작성
-	public List<Notice> getNoticeList(String field/*TITLE, WRITER_ID*/, String query/*A*/, int page) {
-		List<Notice> list = new ArrayList<>();
+	public List<NoticeView> getNoticeList(String field/*TITLE, WRITER_ID*/, String query/*A*/, int page) {
+		List<NoticeView> list = new ArrayList<>();
 		String sql ="SELECT * FROM (" + 
 				"    SELECT ROWNUM NUM, N.*" + 
-				"    FROM (SELECT * FROM NOTICE WHERE " + field + " LIKE ? ORDER BY REGDATE DESC) N" + 
+				"    FROM (SELECT * FROM NOTICE_VIEW WHERE " + field + " LIKE ? ORDER BY REGDATE DESC) N" + 
 				") " + 
 				"WHERE NUM BETWEEN ? AND ?";
 		//두번째? 등차수열: 1, 6, 11, 16 -> an= 1+(page-1)*5
@@ -55,16 +56,18 @@ public class NoticeService {
 				String writerId = rs.getString("WRITER_ID");
 				int hit = rs.getInt("HIT");
 				String files = rs.getString("FILES");
-				String content = rs.getString("CONTENT");
+				//String content = rs.getString("CONTENT");
+				int cmtCount = rs.getInt("CMT_COUNT");
 				
-				Notice notice = new Notice(
+				NoticeView notice = new NoticeView(
 						id,
 						title,
 						regdate,
 						writerId,
 						hit,
 						files,
-						content
+						//content,
+						cmtCount
 						);
 				list.add(notice);
 			}
