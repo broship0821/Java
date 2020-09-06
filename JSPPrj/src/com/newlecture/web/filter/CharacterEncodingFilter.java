@@ -17,13 +17,11 @@ public class CharacterEncodingFilter implements Filter {
 			throws IOException, ServletException {
 		
 		//servlet 동작 전에 실행
-		System.out.println("Before Filter"); 
 		request.setCharacterEncoding("UTF-8");
 		
 		chain.doFilter(request, response); //전달받은걸 servlet에 전달
 		
 		//servlet 동작 후에 실행
-		System.out.println("After Filter"); 
 
 	}
 
