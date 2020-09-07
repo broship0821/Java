@@ -25,6 +25,8 @@ public class RegController extends HttpServlet {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String isOpen = request.getParameter("open");
+		boolean pub = false;
+		if(isOpen!=null) pub = true;
 		
 		//바로 공개 여부 결정하기
 		/*
@@ -36,14 +38,15 @@ public class RegController extends HttpServlet {
 		 	5. NoticeService에서 Notice나 NoticeView를 사용하는 모든 메소드 수정
 		 */
 		Notice notice = new Notice();
-		NoticeService service = new NoticeService();
-		service.insertNotice(notice);
+		notice.setTitle(title);
+		notice.setContent(content);
+		notice.setPub(pub);
+		notice.setWriterId("SON7");
 		
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		out.printf("title: %s <br>", title);
-		out.printf("content: %s <br>", content);
-		out.printf("isOpen: %s <br>", isOpen);
+		NoticeService service = new NoticeService();
+		int result = service.insertNotice(notice);
+		System.out.println(result + "행이 추가되었습니다");
+		
+		response.sendRedirect("list");
 	}
 }
