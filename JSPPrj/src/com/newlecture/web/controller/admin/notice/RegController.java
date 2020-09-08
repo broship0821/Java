@@ -1,17 +1,27 @@
 package com.newlecture.web.controller.admin.notice;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import com.newlecture.web.entity.Notice;
 import com.newlecture.web.service.NoticeService;
 
+@MultipartConfig(
+		fileSizeThreshold = 1024*1024,
+		maxFileSize = 1024*1024*50,
+		maxRequestSize =  1024*1024*50*5
+)
 @WebServlet("/admin/board/notice/reg")
 public class RegController extends HttpServlet {
 	@Override
@@ -25,6 +35,26 @@ public class RegController extends HttpServlet {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String isOpen = request.getParameter("open");
+		
+		Part filePart = request.getPart("file");
+		String fileName = filePart.getSubmittedFileName();
+		InputStream fis = filePart.getInputStream();
+		
+		String realPath = request.getServletContext().getRealPath("/upload");
+		System.out.println(realPath);
+		
+		String filePath = realPath + File.separator + fileName;
+		FileOutputStream fos = new FileOutputStream(filePath);
+		
+		byte[] buf = new byte[1024];
+		int size = 0;
+		while((size=fis.read(buf)) != -1) {
+			fos.write(buf, 0, size);
+		}
+		
+		fos.close();
+		fis.close();
+		
 		boolean pub = false;
 		if(isOpen!=null) pub = true;
 		
@@ -44,8 +74,7 @@ public class RegController extends HttpServlet {
 		notice.setWriterId("SON7");
 		
 		NoticeService service = new NoticeService();
-		int result = service.insertNotice(notice);
-		System.out.println(result + "행이 추가되었습니다");
+//		int result = service.insertNotice(notice);
 		
 		response.sendRedirect("list");
 	}
