@@ -9,6 +9,7 @@
 <title>운동 기록 프로그램</title>
 </head>
 <body>
+<form action="#">
 	<%
 		Calendar cal = Calendar.getInstance();
 		int year = cal.get(Calendar.YEAR);
@@ -24,6 +25,10 @@
 		<option value="ex5">5. 딥스</option>
 		<option value="ex6">6. 이두</option>
 		<option value="ex7">7. 친업</option>
-	</select>
+	</select><br><br>
+	<input type="text" name="num">회<br><br>
+	<input type="submit" value="저장">
+	<input type="reset" value="초기화">
+</form>
 </body>
 </html>
