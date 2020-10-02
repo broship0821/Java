@@ -14,7 +14,7 @@ public class ConnectionUtil {
 	static {
 		try {
 			InitialContext ctx = new InitialContext();
-			ds = (DataSource)ctx.lookup("java:comp/env/jdbc/myOracle")
+			ds = (DataSource)ctx.lookup("java:comp/env/jdbc/myOracle");
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}

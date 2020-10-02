@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.DAO;
+
 
 @WebServlet("/record")
 public class RecordController extends HttpServlet {
@@ -27,6 +29,9 @@ public class RecordController extends HttpServlet {
 		
 		request.setAttribute("exercise", exercise);
 		request.setAttribute("num", num);
+		
+		DAO dao = DAO.getInstance();
+		request.setAttribute("x", dao.test());
 		
 		request.getRequestDispatcher("/WEB-INF/view/record.jsp").forward(request, response);
 		
