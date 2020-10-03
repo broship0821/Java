@@ -11,6 +11,7 @@ public class Exercise {
 	private int dumbbell_curl;
 	private int chin_up;
 	private Date regdate;
+	
 	public int getPull_up() {
 		return pull_up;
 	}
