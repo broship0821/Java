@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entity.Exercise;
 import service.DAO;
 
 
@@ -31,7 +32,8 @@ public class RecordController extends HttpServlet {
 		request.setAttribute("num", num);
 		
 		DAO dao = DAO.getInstance();
-		request.setAttribute("x", dao.test());
+		Exercise ex = new Exercise();
+		//생성자 추가하고 getParameter로 받은 후 생성하고 DB에 저장
 		
 		request.getRequestDispatcher("/WEB-INF/view/record.jsp").forward(request, response);
 		
