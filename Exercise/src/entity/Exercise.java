@@ -12,6 +12,18 @@ public class Exercise {
 	private int chin_up;
 	private Date regdate;
 	
+	public Exercise() {}
+	
+	public Exercise(int pull_up, int hspu, int push_up, int samdu, int dips, int dumbbell_curl, int chin_up) {
+		this.pull_up = pull_up;
+		this.hspu = hspu;
+		this.push_up = push_up;
+		this.samdu = samdu;
+		this.dips = dips;
+		this.dumbbell_curl = dumbbell_curl;
+		this.chin_up = chin_up;
+	}
+	
 	public int getPull_up() {
 		return pull_up;
 	}

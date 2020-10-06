@@ -25,15 +25,18 @@ public class RecordController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String exercise = request.getParameter("ex");
-		String num = request.getParameter("num");
-		
-		request.setAttribute("exercise", exercise);
-		request.setAttribute("num", num);
+		int pull_up = Integer.parseInt(request.getParameter("pull_up"));
+		int hspu = Integer.parseInt(request.getParameter("hspu"));
+		int push_up = Integer.parseInt(request.getParameter("push_up"));
+		int samdu = Integer.parseInt(request.getParameter("samdu"));
+		int dips = Integer.parseInt(request.getParameter("dips"));
+		int dumbbell_curl = Integer.parseInt(request.getParameter("dumbbell_curl"));
+		int chin_up = Integer.parseInt(request.getParameter("chin_up"));
+		Exercise ex = new Exercise(pull_up, hspu, push_up, samdu, dips, dumbbell_curl, chin_up);
 		
 		DAO dao = DAO.getInstance();
-		Exercise ex = new Exercise();
-		//생성자 추가하고 getParameter로 받은 후 생성하고 DB에 저장
+		dao.insertRecord(ex);
+		//이제 view에 출력하는 로직 작성
 		
 		request.getRequestDispatcher("/WEB-INF/view/record.jsp").forward(request, response);
 		

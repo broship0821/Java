@@ -8,7 +8,6 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-${exercise} : ${num }회<br><br>
-<b>${x }</b>
+
 </body>
 </html>
