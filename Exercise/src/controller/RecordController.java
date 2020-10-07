@@ -35,8 +35,9 @@ public class RecordController extends HttpServlet {
 		Exercise ex = new Exercise(pull_up, hspu, push_up, samdu, dips, dumbbell_curl, chin_up);
 		
 		DAO dao = DAO.getInstance();
-		dao.insertRecord(ex);
-		//이제 view에 출력하는 로직 작성
+//		dao.insertRecord(ex);
+		
+		request.setAttribute("ex", ex);
 		
 		request.getRequestDispatcher("/WEB-INF/view/record.jsp").forward(request, response);
 		
