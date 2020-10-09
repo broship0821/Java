@@ -1,6 +1,7 @@
 package entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Exercise {
 	private int pull_up;
@@ -10,7 +11,7 @@ public class Exercise {
 	private int dips;
 	private int dumbbell_curl;
 	private int chin_up;
-	private Date regdate;
+	private LocalDate regdate;
 	
 	public Exercise() {}
 	
@@ -66,10 +67,10 @@ public class Exercise {
 	public void setChin_up(int chin_up) {
 		this.chin_up = chin_up;
 	}
-	public Date getRegdate() {
+	public LocalDate getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(Date regdate) {
+	public void setRegdate(LocalDate regdate) {
 		this.regdate = regdate;
 	}
 	
