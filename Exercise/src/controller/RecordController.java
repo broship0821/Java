@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +39,9 @@ public class RecordController extends HttpServlet {
 		DAO dao = DAO.getInstance();
 //		dao.insertRecord(ex);
 		
-		request.setAttribute("ex", ex);
+		Exercise recordEx = dao.checkDayRecord(LocalDate.now());
+		
+		request.setAttribute("ex", recordEx);
 		
 		request.getRequestDispatcher("/WEB-INF/view/record.jsp").forward(request, response);
 		

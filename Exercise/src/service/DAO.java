@@ -5,7 +5,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import entity.Exercise;
 
@@ -45,21 +47,26 @@ public class DAO {
 		}
 	}
 	
-	public void checkDayRecord(LocalDate regdate) {
+	public Exercise checkDayRecord(LocalDate regdate) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		Exercise ex = null;
 		
 		try {
 			conn = ConnectionUtil.getConnection();
 
-			String sql = "select * form EXERCISE where REGDATE = ?";
+//			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+//			String date = regdate.format(formatter);
+			String sql = "select * from EXERCISE where PULL_UP=30";
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setDate(1, Date.valueOf(regdate));
 			/*
 			 LocalDate를 Date형식으로 바꿔서 sql문에 대입
 			 이렇게 하면 날짜를 매개변수로 db에서 꺼내오는거 쌉가능?
+			 
+			 어떡게든 날짜로 꺼내오려는데 문제 생김
+			 sql 디벨로퍼에서 날짜로 꺼내오는거 연구해보기
 			 */
 			
 			rs = pstmt.executeQuery();
@@ -73,7 +80,7 @@ public class DAO {
 				int dumbbell_curl = rs.getInt("dumbbell_curl");
 				int chin_up = rs.getInt("chin_up");
 				
-				Exercise ex = new Exercise(pull_up, hspu, push_up, samdu, dips, dumbbell_curl, chin_up);
+				ex = new Exercise(pull_up, hspu, push_up, samdu, dips, dumbbell_curl, chin_up);
 			}
 			
 			
@@ -84,6 +91,8 @@ public class DAO {
 			if(pstmt != null) try {pstmt.close();} catch(SQLException e) {}
 			if(conn != null) try {conn.close();} catch(SQLException e) {}
 		}
+		
+		return ex;
 	}
 	
 }
