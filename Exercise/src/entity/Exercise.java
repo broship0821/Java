@@ -11,7 +11,7 @@ public class Exercise {
 	private int dips;
 	private int dumbbell_curl;
 	private int chin_up;
-	private LocalDate regdate;
+	private Date regdate;
 	
 	public Exercise() {}
 	
@@ -23,6 +23,7 @@ public class Exercise {
 		this.dips = dips;
 		this.dumbbell_curl = dumbbell_curl;
 		this.chin_up = chin_up;
+//		this.regdate = regdate;
 	}
 	
 	public int getPull_up() {
@@ -67,10 +68,10 @@ public class Exercise {
 	public void setChin_up(int chin_up) {
 		this.chin_up = chin_up;
 	}
-	public LocalDate getRegdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(LocalDate regdate) {
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 	

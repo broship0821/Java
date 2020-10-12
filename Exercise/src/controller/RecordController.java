@@ -34,14 +34,15 @@ public class RecordController extends HttpServlet {
 		int dips = Integer.parseInt(request.getParameter("dips"));
 		int dumbbell_curl = Integer.parseInt(request.getParameter("dumbbell_curl"));
 		int chin_up = Integer.parseInt(request.getParameter("chin_up"));
+		
 		Exercise ex = new Exercise(pull_up, hspu, push_up, samdu, dips, dumbbell_curl, chin_up);
 		
 		DAO dao = DAO.getInstance();
-//		dao.insertRecord(ex);
+		dao.insertRecord(ex);
 		
-		Exercise recordEx = dao.checkDayRecord(LocalDate.now());
-		
-		request.setAttribute("ex", recordEx);
+//		Exercise recordEx = dao.checkDayRecord(LocalDate.now());
+//		
+//		request.setAttribute("ex", recordEx);
 		
 		request.getRequestDispatcher("/WEB-INF/view/record.jsp").forward(request, response);
 		
