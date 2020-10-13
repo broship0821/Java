@@ -62,10 +62,8 @@ public class DAO {
 //			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 //			String date = regdate.format(formatter);
 			
-			System.out.println(regdate.toString());
-			
-			String sql = "select * from EXERCISE where regdate<?";
-			pstmt.setString(1, regdate.toString());
+			String sql = "select * from exercise where regdate='" + Date.valueOf(regdate) +"'";
+//			pstmt.setDate(1, Date.valueOf(regdate));
 			pstmt = conn.prepareStatement(sql);
 			/*
 			 LocalDate를 Date형식으로 바꿔서 sql문에 대입

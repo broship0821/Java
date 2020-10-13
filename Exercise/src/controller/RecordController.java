@@ -38,11 +38,12 @@ public class RecordController extends HttpServlet {
 		Exercise ex = new Exercise(pull_up, hspu, push_up, samdu, dips, dumbbell_curl, chin_up);
 		
 		DAO dao = DAO.getInstance();
-		dao.insertRecord(ex);
+//		dao.insertRecord(ex);
 		
 //		Exercise recordEx = dao.checkDayRecord(LocalDate.now());
-//		
-//		request.setAttribute("ex", recordEx);
+		Exercise recordEx = dao.checkDayRecord(LocalDate.of(2020, 10, 11));
+		
+		request.setAttribute("ex", recordEx);
 		
 		request.getRequestDispatcher("/WEB-INF/view/record.jsp").forward(request, response);
 		
