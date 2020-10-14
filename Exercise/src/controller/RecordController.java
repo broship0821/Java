@@ -40,10 +40,12 @@ public class RecordController extends HttpServlet {
 		DAO dao = DAO.getInstance();
 //		dao.insertRecord(ex);
 		
-//		Exercise recordEx = dao.checkDayRecord(LocalDate.now());
-		Exercise recordEx = dao.checkDayRecord(LocalDate.of(2020, 10, 11));
+		Exercise preEx = dao.checkDayRecord(LocalDate.of(2020, 10, 13));
+		Exercise todayEx = dao.checkDayRecord(LocalDate.now());
+		//이제 이걸 리스트로 만들어서 전부다 볼수 있도록 해볼까
 		
-		request.setAttribute("ex", recordEx);
+		request.setAttribute("preEx", preEx);
+		request.setAttribute("todayEx", todayEx);
 		
 		request.getRequestDispatcher("/WEB-INF/view/record.jsp").forward(request, response);
 		

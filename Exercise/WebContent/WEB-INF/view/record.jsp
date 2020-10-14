@@ -8,35 +8,66 @@
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<table align="center">
-		<th colspan="2">오늘</th>
+	<table align="center">
+		<th colspan="2">어제</th>
 		<tr>
 			<td>풀업</td>
-			<td>${ex.pull_up}회</td>
+			<td>${preEx.pull_up}회</td>
 		</tr>
 		<tr>
 			<td>물구나무 푸시업</td>
-			<td>${ex.hspu}회</td>
+			<td>${preEx.hspu}회</td>
 		</tr>
 		<tr>
 			<td>푸시업</td>
-			<td>${ex.push_up}회</td>
+			<td>${preEx.push_up}회</td>
 		</tr>
 		<tr>
 			<td>삼두 푸시업</td>
-			<td>${ex.samdu}회</td>
+			<td>${preEx.samdu}회</td>
 		</tr>
 		<tr>
 			<td>딥스</td>
-			<td>${ex.dips}회</td>
+			<td>${preEx.dips}회</td>
 		</tr>
 		<tr>
 			<td>덤벨컬</td>
-			<td>${ex.dumbbell_curl}회</td>
+			<td>${preEx.dumbbell_curl}회</td>
 		</tr>
 		<tr>
 			<td>친업</td>
-			<td>${ex.chin_up}회</td>
+			<td>${preEx.chin_up}회</td>
+		</tr>
+	</table>
+	<table align="center">
+		<th colspan="2">오늘</th>
+		<tr>
+			<td>풀업</td>
+			<td>${todayEx.pull_up}회</td>
+		</tr>
+		<tr>
+			<td>물구나무 푸시업</td>
+			<td>${todayEx.hspu}회</td>
+		</tr>
+		<tr>
+			<td>푸시업</td>
+			<td>${todayEx.push_up}회</td>
+		</tr>
+		<tr>
+			<td>삼두 푸시업</td>
+			<td>${todayEx.samdu}회</td>
+		</tr>
+		<tr>
+			<td>딥스</td>
+			<td>${todayEx.dips}회</td>
+		</tr>
+		<tr>
+			<td>덤벨컬</td>
+			<td>${todayEx.dumbbell_curl}회</td>
+		</tr>
+		<tr>
+			<td>친업</td>
+			<td>${todayEx.chin_up}회</td>
 		</tr>
 	</table><br><br>
 </body>
