@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import entity.Exercise;
 
@@ -50,7 +52,10 @@ public class DAO {
 		}
 	}
 	
-	public Exercise checkDayRecord(LocalDate regdate) {
+	public List<Exercise> checkDayRecord() {
+		
+		List<Exercise> list = new ArrayList<>();
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -58,28 +63,14 @@ public class DAO {
 		
 		try {
 			conn = ConnectionUtil.getConnection();
-
-//			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-//			String date = regdate.format(formatter);
 			
-			String sql = "select * from exercise where regdate='" + Date.valueOf(regdate) +"'";
-//			pstmt.setDate(1, Date.valueOf(regdate));
+			String sql = "select * from exercise";
 			pstmt = conn.prepareStatement(sql);
-			/*
-			 LocalDate를 Date형식으로 바꿔서 sql문에 대입
-			 이렇게 하면 날짜를 매개변수로 db에서 꺼내오는거 쌉가능?
-			 
-			 어떻게든 날짜로 꺼내오려는데 문제 생김
-			 sql 디벨로퍼에서 날짜로 꺼내오는거 연구해보기
-			 
-			 1. 아예 추가할때 여기서 년,월,일만 저장
-			 2. 비교(<,>) 써서 일주일치씩 꺼내오기
-			 
-			 */
+			
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				int pull_up = rs.getInt("pull_up");
 				int hspu = rs.getInt("hspu");
 				int push_up = rs.getInt("push_up");
@@ -87,9 +78,10 @@ public class DAO {
 				int dips = rs.getInt("dips");
 				int dumbbell_curl = rs.getInt("dumbbell_curl");
 				int chin_up = rs.getInt("chin_up");
-//				Date date = rs.getDate("regdate");
+				Date date = rs.getDate("regdate");
 				
-				ex = new Exercise(pull_up, hspu, push_up, samdu, dips, dumbbell_curl, chin_up);
+				ex = new Exercise(pull_up, hspu, push_up, samdu, dips, dumbbell_curl, chin_up, date);
+				list.add(ex);
 			}
 			
 			
@@ -101,7 +93,7 @@ public class DAO {
 			if(conn != null) try {conn.close();} catch(SQLException e) {}
 		}
 		
-		return ex;
+		return list;
 	}
 	
 }

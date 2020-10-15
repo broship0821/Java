@@ -15,7 +15,7 @@ public class Exercise {
 	
 	public Exercise() {}
 	
-	public Exercise(int pull_up, int hspu, int push_up, int samdu, int dips, int dumbbell_curl, int chin_up) {
+	public Exercise(int pull_up, int hspu, int push_up, int samdu, int dips, int dumbbell_curl, int chin_up, Date regdate) {
 		this.pull_up = pull_up;
 		this.hspu = hspu;
 		this.push_up = push_up;
@@ -23,7 +23,7 @@ public class Exercise {
 		this.dips = dips;
 		this.dumbbell_curl = dumbbell_curl;
 		this.chin_up = chin_up;
-//		this.regdate = regdate;
+		this.regdate = regdate;
 	}
 	
 	public int getPull_up() {

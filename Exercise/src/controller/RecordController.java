@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,17 +37,17 @@ public class RecordController extends HttpServlet {
 		int dumbbell_curl = Integer.parseInt(request.getParameter("dumbbell_curl"));
 		int chin_up = Integer.parseInt(request.getParameter("chin_up"));
 		
-		Exercise ex = new Exercise(pull_up, hspu, push_up, samdu, dips, dumbbell_curl, chin_up);
+		Exercise ex = new Exercise(pull_up, hspu, push_up, samdu, dips, dumbbell_curl, chin_up, null);
 		
 		DAO dao = DAO.getInstance();
 //		dao.insertRecord(ex);
 		
-		Exercise preEx = dao.checkDayRecord(LocalDate.of(2020, 10, 13));
-		Exercise todayEx = dao.checkDayRecord(LocalDate.now());
+//		Exercise preEx = dao.checkDayRecord(LocalDate.of(2020, 10, 13));
+//		Exercise todayEx = dao.checkDayRecord(LocalDate.now());
 		//이제 이걸 리스트로 만들어서 전부다 볼수 있도록 해볼까
+		List<Exercise> list = dao.checkDayRecord();
 		
-		request.setAttribute("preEx", preEx);
-		request.setAttribute("todayEx", todayEx);
+		request.setAttribute("ex", list);
 		
 		request.getRequestDispatcher("/WEB-INF/view/record.jsp").forward(request, response);
 		
