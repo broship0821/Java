@@ -9,9 +9,18 @@ import spring.di.ui.InlineExamConsole;
 public class Program {
 
 	public static void main(String[] args) {
+		/*
 		Exam exam = new NewlecExam();
-//		ExamConsole console = new InlineExamConsole(exam);
-		ExamConsole console = new GridExamConsole(exam);
+		ExamConsole console = new GridExamConsole();
+		
+		console.setExam(exam);
+		이걸 xml로 구현해볼것임
+		
+		xml에서 객체도 만들고 setter도 구현했으니 그 xml
+		파일에서 설정을 가져올 객체를 만들어야됨
+		*/
+		
+		
 		console.print();
 
 	}
