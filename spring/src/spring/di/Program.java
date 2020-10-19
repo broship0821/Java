@@ -21,7 +21,9 @@ public class Program {
 		*/
 		
 		
-		console.print();
+//		console.print();
+		//스프링으로 프로잭트 만들기
+		
 
 	}
 
