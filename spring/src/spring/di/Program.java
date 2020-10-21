@@ -20,9 +20,9 @@ public class Program {
 		파일에서 설정을 가져올 객체를 만들어야됨
 		*/
 		
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring/di/setting.xml");
 		
-//		console.print();
-		//스프링으로 프로잭트 만들기
+		console.print();
 		
 
 	}
