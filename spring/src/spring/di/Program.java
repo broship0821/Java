@@ -1,10 +1,9 @@
 package spring.di;
 
-import spring.di.entity.Exam;
-import spring.di.entity.NewlecExam;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import spring.di.ui.ExamConsole;
-import spring.di.ui.GridExamConsole;
-import spring.di.ui.InlineExamConsole;
 
 public class Program {
 
@@ -14,7 +13,7 @@ public class Program {
 		ExamConsole console = new GridExamConsole();
 		
 		console.setExam(exam);
-		이걸 xml로 구현해볼것임
+		이걸 xml로 구현해볼것임<<
 		
 		xml에서 객체도 만들고 setter도 구현했으니 그 xml
 		파일에서 설정을 가져올 객체를 만들어야됨
@@ -22,6 +21,8 @@ public class Program {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring/di/setting.xml");
 		
+//		ExamConsole console = (ExamConsole) context.getBean("console");
+		ExamConsole console = context.getBean(ExamConsole.class);
 		console.print();
 		
 
