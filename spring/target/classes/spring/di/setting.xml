@@ -3,7 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="exam" class="spring.di.entity.NewlecExam" />
+	<bean id="exam" class="spring.di.entity.NewlecExam">
+		<property name="kor">
+			<value>10</value>
+		</property>
+		<property name="eng" value="10" />
+		<property name="math" value="10" />
+		<property name="com" value="10" />
+	</bean>
 	<bean id="console" class="spring.di.ui.InlineExamConsole">
 		<property name="exam" ref="exam" /><!-- name="exam" 은 .setExam()함수와 같은거임, set이 생략되있다는걸 잊지말기  -->
 	</bean>
