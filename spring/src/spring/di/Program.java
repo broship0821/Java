@@ -10,6 +10,7 @@ public class Program {
 	public static void main(String[] args) {
 		/*
 		Exam exam = new NewlecExam();
+		Exam exam = new NewlecExam(10, 10, 10, 10);
 		ExamConsole console = new GridExamConsole();
 		
 		console.setExam(exam);
