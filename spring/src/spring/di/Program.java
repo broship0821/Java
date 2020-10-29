@@ -14,10 +14,14 @@ public class Program {
 		ExamConsole console = new GridExamConsole();
 		
 		console.setExam(exam);
-		이걸 xml로 구현해볼것임<<
+		
+		이걸 xml로 구현해볼것임
+		소스코드 수정 없이 부품을 바꿀수 있어야됨
 		
 		xml에서 객체도 만들고 setter도 구현했으니 그 xml
 		파일에서 설정을 가져올 객체를 만들어야됨
+		
+		
 		*/
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring/di/setting.xml");
