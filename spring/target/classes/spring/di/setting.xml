@@ -4,12 +4,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<!-- Exam exam = new NewlecExam(); 이렇게 생성하는 방법은 아래와 같음 -->
 	<bean id="exam" class="spring.di.entity.NewlecExam">
+		<!--setter로 값 설정하는 방법  -->
 		<!-- <property name="kor">
 			<value>10</value>
 		</property>
 		<property name="eng" value="10" />
 		<property name="math" value="10" />
 		<property name="com" value="10" /> -->
+		
+		<!-- 생성자로 값 설정하는 방법  -->
 		<constructor-arg value="10" />
 		<constructor-arg value="10" />
 		<constructor-arg value="10" />

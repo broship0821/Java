@@ -26,8 +26,8 @@ public class Program {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring/di/setting.xml");
 		
-//		ExamConsole console = (ExamConsole) context.getBean("console");
-		ExamConsole console = context.getBean(ExamConsole.class);
+//		ExamConsole console = (ExamConsole) context.getBean("console"); //id로 꺼내오면 무슨 형식인지 모르니 object로 꺼내옴, 형 변환 필요
+		ExamConsole console = context.getBean(ExamConsole.class); //ExamConsole 이 인터페이스와 같은 형식을 꺼내오라고 시킴, 형 변환 불필요, 근데 똑같은게 여러개일때는?
 		console.print();
 		
 
