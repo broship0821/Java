@@ -65,4 +65,11 @@ public class NewlecExam implements Exam {
 		return total()/4.0;
 	}
 
+
+
+	@Override
+	public String toString() {
+		return "NewlecExam [kor=" + kor + ", eng=" + eng + ", math=" + math + ", com=" + com + "]";
+	}
+
 }

@@ -1,27 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 	<!-- Exam exam = new NewlecExam(); 이렇게 생성하는 방법은 아래와 같음 -->
-	<bean id="exam" class="spring.di.entity.NewlecExam">
-		<!--setter로 값 설정하는 방법  -->
-		<!-- <property name="kor">
+	<!-- <bean id="exam" class="spring.di.entity.NewlecExam">
+		setter로 값 설정하는 방법 
+		<property name="kor">
 			<value>10</value>
 		</property>
 		<property name="eng" value="10" />
 		<property name="math" value="10" />
-		<property name="com" value="10" /> -->
+		<property name="com" value="10" />
 		
-		<!-- 생성자로 값 설정하는 방법  -->
-		<constructor-arg value="10" />
-		<constructor-arg value="10" />
-		<constructor-arg value="10" />
-		<constructor-arg value="10" />
-	</bean>
+		생성자로 값 설정하는 방법 
+		<constructor-arg name="kor" value="10" />
+		<constructor-arg name="eng" value="20" />
+		<constructor-arg index="3" value="30" />
+		<constructor-arg index="2" value="40" />
+	</bean> -->
+	<!-- 이렇게 복잡하게 하지 않고 단일 태그로 끝내는 방법 p: -> 네임스페이스 -->
+	<bean id="exam" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10" p:math="20" p:com="30" />
+	
+	
 	<!-- ExamConsole console = new GridExamConsole(); -->
 	<bean id="console" class="spring.di.ui.InlineExamConsole">
 		<!-- console.setExam(exam); -->
 		<property name="exam" ref="exam" /><!-- name="exam" 은 .setExam()함수와 같은거임, set이 생략되있다는걸 잊지말기  -->
 	</bean>
+
+
+
+
+
+	<!-- <bean id="exams" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<bean class="spring.di.entity.NewlecExam" p:kor="1" p:eng="1" p:math="1" p:com="1" />
+				<ref bean="exam" />
+			</list>
+		</constructor-arg>
+	</bean> -->
+	<!--위에는 <list>태그로 하나하나 추가하는 방법,
+			밑에는 util 네임스페이스로 컬랙션 하나 만들어서 추가하는 방법  -->
+	<util:list id="exams" list-class="java.util.ArrayList">
+		<bean class="spring.di.entity.NewlecExam" p:kor="1" p:eng="1" p:math="1" p:com="1" />
+		<ref bean="exam" />
+	</util:list>
+	
 
 </beans>
