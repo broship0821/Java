@@ -3,8 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	
+	<!-- 이게 있어야만 어노테이션 인식함  -->
+	<context:annotation-config />
+	
 	<!-- Exam exam = new NewlecExam(); 이렇게 생성하는 방법은 아래와 같음 -->
 	<!-- <bean id="exam" class="spring.di.entity.NewlecExam">
 		setter로 값 설정하는 방법 
@@ -22,13 +28,14 @@
 		<constructor-arg index="2" value="40" />
 	</bean> -->
 	<!-- 이렇게 복잡하게 하지 않고 단일 태그로 끝내는 방법 p: -> 네임스페이스 -->
-	<bean id="exam" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10" p:math="20" p:com="30" />
+	<bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10" p:math="20" p:com="30" />
+	<bean id="exam2" class="spring.di.entity.NewlecExam" p:kor="40" p:eng="40" p:math="40" p:com="40" />
 	
 	
 	<!-- ExamConsole console = new GridExamConsole(); -->
 	<bean id="console" class="spring.di.ui.InlineExamConsole">
 		<!-- console.setExam(exam); -->
-		<property name="exam" ref="exam" /><!-- name="exam" 은 .setExam()함수와 같은거임, set이 생략되있다는걸 잊지말기  -->
+		<!-- <property name="exam" ref="exam" /> 이제 이걸 지우고 어노테이션 방법 쓰기 --><!-- name="exam" 은 .setExam()함수와 같은거임, set이 생략되있다는걸 잊지말기  -->
 	</bean>
 
 
@@ -45,10 +52,10 @@
 	</bean> -->
 	<!--위에는 <list>태그로 하나하나 추가하는 방법,
 			밑에는 util 네임스페이스로 컬랙션 하나 만들어서 추가하는 방법  -->
-	<util:list id="exams" list-class="java.util.ArrayList">
+	<!-- <util:list id="exams" list-class="java.util.ArrayList">
 		<bean class="spring.di.entity.NewlecExam" p:kor="1" p:eng="1" p:math="1" p:com="1" />
 		<ref bean="exam" />
-	</util:list>
+	</util:list> -->
 	
 
 </beans>
