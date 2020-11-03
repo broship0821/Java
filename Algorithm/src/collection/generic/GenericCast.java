@@ -14,13 +14,11 @@ interface Estable {}
 public class GenericCast {
 
 	public static void main(String[] args) {
-		FruitBox<Fruit> fruitBox = new FruitBox<>();
-		FruitBox<Apple> appleBox = new FruitBox<>();
-		FruitBox<Grape> grapeBox = new FruitBox<>();
-//		FruitBox<Grape> grapeBox = new FruitBox<>(); //타입 불일치
-		Box<Toy> toyBox = new Box<>(); //얘는 제약이 없기 때문에 OK
-//		FruitBox<Toy> toyBox2 = new FruitBox<>(); //Fruit랑 그 자손만 가능
-
+		FruitBox<? extends Fruit> fbox = (FruitBox<? extends Fruit>)new FruitBox<Fruit>();
+		FruitBox<? extends Fruit> abox = new FruitBox<Apple>();
+		
+		FruitBox<Apple> appleBox = (FruitBox<Apple>) abox;
+		
 	}
 
 }

@@ -28,8 +28,8 @@
 		<constructor-arg index="2" value="40" />
 	</bean> -->
 	<!-- 이렇게 복잡하게 하지 않고 단일 태그로 끝내는 방법 p: -> 네임스페이스 -->
-	<bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10" p:math="20" p:com="30" />
-	<bean id="exam2" class="spring.di.entity.NewlecExam" p:kor="40" p:eng="40" p:math="40" p:com="40" />
+	<!-- <bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10" p:math="20" p:com="30" />
+	<bean id="exam2" class="spring.di.entity.NewlecExam" p:kor="40" p:eng="40" p:math="40" p:com="40" /> -->
 	
 	
 	<!-- ExamConsole console = new GridExamConsole(); -->

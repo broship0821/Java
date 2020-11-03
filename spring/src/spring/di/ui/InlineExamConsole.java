@@ -7,13 +7,18 @@ import spring.di.entity.Exam;
 
 public class InlineExamConsole implements ExamConsole {
 
+	
+	@Autowired(required = false)
+	@Qualifier("exam2") //여기다 두면 기본 생성자로 넣는걸로 취급함
 	private Exam exam;
 	
 	public InlineExamConsole() {
-		// TODO Auto-generated constructor stub
+		System.out.println("기본 생성자 생성");
 	}
 	
-	public InlineExamConsole(Exam exam) {
+//	@Autowired
+	public InlineExamConsole(/*@Qualifier("exam2")*/Exam exam) {
+		System.out.println("오버로드 생성자 생성");
 		this.exam = exam;
 	}
 
@@ -21,14 +26,18 @@ public class InlineExamConsole implements ExamConsole {
 
 	@Override
 	public void print() {
-		System.out.printf("total is %d, avg is %f\n", exam.total(), exam.avg());
+		if(exam == null)
+			System.out.printf("total is %d, avg is %f\n", 0, 0.0);
+		else
+			System.out.printf("total is %d, avg is %f\n", exam.total(), exam.avg());
 
 	}
 	
-	@Autowired
-	@Qualifier("exam2") // xml에 id가 exam1인거에 매치해라
+//	@Autowired
+//	@Qualifier("exam2") // xml에 id가 exam1인거에 매치해라
 	@Override
 	public void setExam(Exam exam) {
+		System.out.println("setter 생성");
 		this.exam = exam;
 		
 	}
