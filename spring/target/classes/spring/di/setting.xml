@@ -9,7 +9,8 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 	
 	<!-- 이게 있어야만 어노테이션 인식함  -->
-	<context:annotation-config />
+	<!-- <context:annotation-config /> -->
+	<context:component-scan base-package="spring.di.ui, spring.di.entity" />
 	
 	<!-- Exam exam = new NewlecExam(); 이렇게 생성하는 방법은 아래와 같음 -->
 	<!-- <bean id="exam" class="spring.di.entity.NewlecExam">
@@ -33,10 +34,10 @@
 	
 	
 	<!-- ExamConsole console = new GridExamConsole(); -->
-	<bean id="console" class="spring.di.ui.InlineExamConsole">
-		<!-- console.setExam(exam); -->
-		<!-- <property name="exam" ref="exam" /> 이제 이걸 지우고 어노테이션 방법 쓰기 --><!-- name="exam" 은 .setExam()함수와 같은거임, set이 생략되있다는걸 잊지말기  -->
-	</bean>
+	<!-- <bean id="console" class="spring.di.ui.InlineExamConsole">
+		console.setExam(exam);
+		<property name="exam" ref="exam" /> 이제 이걸 지우고 어노테이션 방법 쓰기name="exam" 은 .setExam()함수와 같은거임, set이 생략되있다는걸 잊지말기 
+	</bean> -->
 
 
 

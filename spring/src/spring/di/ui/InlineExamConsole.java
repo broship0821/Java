@@ -2,14 +2,16 @@ package spring.di.ui;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import spring.di.entity.Exam;
 
+@Component("console")
 public class InlineExamConsole implements ExamConsole {
 
 	
 	@Autowired(required = false)
-	@Qualifier("exam2") //여기다 두면 기본 생성자로 넣는걸로 취급함
+//	@Qualifier("exam2") //여기다 두면 기본 생성자로 넣는걸로 취급함
 	private Exam exam;
 	
 	public InlineExamConsole() {
