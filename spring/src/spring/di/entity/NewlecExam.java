@@ -2,8 +2,9 @@ package spring.di.entity;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+
 public class NewlecExam implements Exam {
 
 	@Value("10")
