@@ -10,19 +10,25 @@
 
 	
 	<!-- Exam exam = new NewlecExam(); 이렇게 생성하는 방법은 아래와 같음 -->
-	<bean id="exam" class="spring.aop.entity.NewlecExam" p:kor="1" p:eng="1" p:math="1" p:com="1" />
-	<!-- 아래를 주석하면 곁다리 업무 수행, 위를 주석하면 본 업무만 실행
+	<bean id="target" class="spring.aop.entity.NewlecExam" p:kor="101" p:eng="1" p:math="1" p:com="1" />
+	<!-- 아래를 주석하면 곁다리 업무 수행, 위를 주석하면 본 업무만 실행 -->
 	<bean id="logAroundAdvice" class="spring.aop.advice.LogAroundAdvice" />
+	<bean id="logBeforeAdvice" class="spring.aop.advice.LogBeforeAdvice" />
+	<bean id="logAfterReturningAdvice" class="spring.aop.advice.LogAfterReturningAdvice" />
+	<bean id="logAfterThrowingAdvice" class="spring.aop.advice.LogAfterThrowingAdvice" />
 	
 	<bean id="exam" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="target" ref="exam" /> NewlecExam.class.getClassLoader() 이 역활
-		인터페이스들은 스프링이 알아서 찾아줌
-		<property name="interceptorNames"> new InvocationHandler() 이 역활
+		<property name="target" ref="target" /> <!-- NewlecExam.class.getClassLoader() 이 역할 -->
+		<!-- 인터페이스들은 스프링이 알아서 찾아줌 -->
+		<property name="interceptorNames"> <!-- new InvocationHandler() 이 역할 -->
 			<list>
 				<value>logAroundAdvice</value>
+				<value>logBeforeAdvice</value>
+				<value>logAfterReturningAdvice</value>
+				<value>logAfterThrowingAdvice</value>
 			</list>
 		</property>
 	</bean>
-	 -->
+	
 
 </beans>
