@@ -1,4 +1,4 @@
-package threadEx;
+package threadEx1;
 
 class MyThread1 extends Thread { //Thread 클래스를 상속해서 쓰레드 구현
 	@Override
