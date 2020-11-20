@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserDAO {
 	
@@ -39,8 +40,31 @@ public class UserDAO {
 			return -1; //아이디 없음
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {rs.close();} catch (SQLException e) {}
+			try {pstmt.close();} catch (SQLException e) {}
+			try {conn.close();} catch (SQLException e) {}
 		}
 		return -2; //db 오류
+	}
+	
+	public int join(User user) {
+		String sql = "INSERT INTO user VALUES(?,?,?,?,?)";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user.getUserID());
+			pstmt.setString(2, user.getUserPW());
+			pstmt.setString(3, user.getUserName());
+			pstmt.setString(4, user.getUserGender());
+			pstmt.setString(5, user.getUserEmail());
+			return pstmt.executeUpdate(); //회원가입 성공, 0이상의 수 반환
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {pstmt.close();} catch (SQLException e) {}
+			try {conn.close();} catch (SQLException e) {}
+		}
+		return -1; //db 오류
 	}
 	
 }
