@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="tv" class="peter.spring.polymorphism.SamsungTV" 
+				scope="prototype" />
+	<!--
+	init-method="start" destroy-method="stop" 이거 추가하면
+	이 객체가 생성될때 init-method 가 실행되고 객체가 삭제될때(컨테이너가 클로즈당할때?) destroy-method 실행됨 
+	 -->
+	 <!-- 
+	 scope="prototype" or "singleton"
+	 prototype: 객체 생성때마다 새로운 객체 생성
+	 singleton: 싱글톤, 하나의 객체만 생성
+	  -->
+</beans>
