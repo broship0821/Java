@@ -1,6 +1,6 @@
 package peter.spring.polymorphism;
 
-public class SonySpeaker {
+public class SonySpeaker implements Speaker {
 	public SonySpeaker() {
 		System.out.println("***소니스피커 객체 생성");
 	}

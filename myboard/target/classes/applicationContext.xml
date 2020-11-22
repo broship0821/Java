@@ -3,8 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="tv" class="peter.spring.polymorphism.SamsungTV" 
-				scope="prototype" />
+	<bean id="tv" class="peter.spring.polymorphism.SamsungTV" >
+		<!-- <constructor-arg index="0" ref="apple"></constructor-arg>
+		<constructor-arg index="1" value="3000000"></constructor-arg> -->
+		<property name="speaker" ref="apple"></property>
+		<property name="price" value="3000000"></property>
+	</bean>
+	<!-- <bean id="sony" class="peter.spring.polymorphism.SonySpeaker"></bean> -->
+	<bean id="apple" class="peter.spring.polymorphism.AppleSpeaker"></bean>
 	<!--
 	init-method="start" destroy-method="stop" 이거 추가하면
 	이 객체가 생성될때 init-method 가 실행되고 객체가 삭제될때(컨테이너가 클로즈당할때?) destroy-method 실행됨 

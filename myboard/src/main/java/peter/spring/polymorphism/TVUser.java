@@ -11,8 +11,6 @@ public class TVUser {
 				new GenericXmlApplicationContext("applicationContext.xml");
 		//2. spring 컨테이너로부터 필요한 객체를 요청(lookup)한다.
 		TV tv1 = (TV) factory.getBean("tv");
-		TV tv2 = (TV) factory.getBean("tv");
-		TV tv3 = (TV) factory.getBean("tv");
 		tv1.powerOn();
 		tv1.volumUp();
 		tv1.volumDown();
