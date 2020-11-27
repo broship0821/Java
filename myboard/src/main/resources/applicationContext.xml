@@ -65,9 +65,13 @@
 	  <!-- <context:component-scan base-package="peter.spring.polymorphism"></context:component-scan>
 	  <bean id="sony" class="peter.spring.polymorphism.SonySpeaker"></bean> -->
 	  
+	  <!-- 
 	  <bean id="myLifeBean" class="peter.spring.lifecycle.MyLifeBeanImpl" init-method="init">
 	  	<property name="greeting"><value>Hello, </value></property>
 	  </bean>
-	  
+	  <bean class="peter.spring.lifecycle.CustomBeanPostProcessor"></bean>
+	   -->
+	   
+	   <context:component-scan base-package="peter.spring.web"></context:component-scan>
 	  
 </beans>
