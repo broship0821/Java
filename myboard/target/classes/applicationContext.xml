@@ -73,5 +73,12 @@
 	   -->
 	   
 	   <context:component-scan base-package="peter.spring.web"></context:component-scan>
+	   <!-- 
+	   <bean id="userService" class="peter.spring.web.user.impl.UserServiceImpl">
+	   		<property name="userDAO" ref="userDAO"></property>
+	   </bean>
+	   <bean id="userDAO" class="peter.spring.web.user.impl.UserDAO"></bean>
+	   -->
+	   
 	  
 </beans>
