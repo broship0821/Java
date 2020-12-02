@@ -103,5 +103,21 @@ public class BbsDAO {
 		return false;
 	}
 	
+	public Bbs getBbs(int bbsId){
+		String sql = "SELECT * FROM bbs WHERE bbsID  = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bbsId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				Bbs b = new Bbs(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+				return b;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	
 }
