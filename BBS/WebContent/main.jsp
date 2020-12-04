@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width", initial-scale="1" >
 <link rel="stylesheet" href="css/bootstrap.css" >
+<link rel="stylesheet" href="css/custom.css" >
 <title>JSP 게시판 웹 사이트 만들기!</title>
 </head>
 <body>
@@ -61,6 +62,41 @@
 			%>
 		</div>
 	</nav>
+	<div class="container">
+		<div class="jumbotron">
+			<div class="container">
+				<h1>트와이스</h1>
+				<p>그룹명인 TWICE는 눈으로 한 번, 귀로 한 번 감동을 준다는 의미로 박진영이 SIXTEEN을 진행하는 동안 지은 이름이다. 브랜드 네이미스트 박재현은 마이 리틀 텔레비전 방송에서 근래 데뷔한 아이돌 중 가장 좋은 팀명이라고 평가했다. 발음적으로 강한 소리가 있어 인식하기 쉽고, 유명한 단어지만 익숙하지는 않아서 신선함을 갖췄다는 평. 애칭은 '트둥이'로, TWICE와 막둥이의 합성어이다.[6] 데뷔 당시 JYP의 막내 그룹이라는 의미로 붙은 애칭이다. 2019년 이후에는 ITZY의 데뷔로 막내가 아니다.</p>
+				<p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="imgs/no1.jpg">
+				</div>
+				<div class="item">
+					<img src="imgs/no2.jpg">
+				</div>
+				<div class="item">
+					<img src="imgs/no3.jpg">
+				</div>
+			</div>
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+		</div>
+	</div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
 	<script src="js/bootstrap.js" ></script>
 </body>

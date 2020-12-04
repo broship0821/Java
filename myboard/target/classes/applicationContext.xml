@@ -87,11 +87,12 @@
 	   <bean id="afterReturning" class="peter.spring.web.common.AfterReturningAdvice"></bean>
 	   <bean id="afterThrowing" class="peter.spring.web.common.AfterThrowingAdvice"></bean>
 	   <bean id="afterAdvice" class="peter.spring.web.common.AfterAdvice"></bean>
+	   <bean id="around" class="peter.spring.web.common.AroundAdvice"></bean>
 	   <aop:config>
 	   	<aop:pointcut expression="execution(* peter.spring.web..*Impl.*(..))" id="allPointcut"/>
 	   	<!-- <aop:pointcut expression="execution(* peter.spring.web..*Impl.get*(..))" id="getPointcut"/> -->
-	   	<aop:aspect ref="afterAdvice">
-	   		<aop:after method="finallyLog" pointcut-ref="allPointcut"/>
+	   	<aop:aspect ref="around">
+	   		<aop:around method="aroundLog" pointcut-ref="allPointcut"/>
 	   	</aop:aspect>
 	   </aop:config>
 	   

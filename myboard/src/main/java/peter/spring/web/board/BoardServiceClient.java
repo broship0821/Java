@@ -13,9 +13,9 @@ public class BoardServiceClient {
 		BoardService boardService = (BoardService) container.getBean("boardService");
 // 3. 글 등록 기능 테스트
 		BoardVO vo = new BoardVO();
-		vo.setTitle("임시제목3");
-		vo.setWriter("삼길동");
-		vo.setContent("삼빠...");
+		vo.setTitle("임시제목4");
+		vo.setWriter("사길동");
+		vo.setContent("사빠...");
 		boardService.insertBoard(vo);
 // 4. 글 검색 기능 테스트
 		List<BoardVO> boardList = boardService.getBoardList(vo);
