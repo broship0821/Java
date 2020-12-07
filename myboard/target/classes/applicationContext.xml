@@ -75,6 +75,7 @@
 	   -->
 	   
 	   <context:component-scan base-package="peter.spring.web"></context:component-scan>
+	   <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	   <!-- 
 	   <bean id="userService" class="peter.spring.web.user.impl.UserServiceImpl">
 	   		<property name="userDAO" ref="userDAO"></property>
@@ -83,18 +84,18 @@
 	   -->
 	   
 	   <!-- <bean id="log" class="peter.spring.web.common.Log4jAdvice"></bean> -->
-	   <bean id="before" class="peter.spring.web.common.BeforeAdvice"></bean>
+	   <!-- <bean id="before" class="peter.spring.web.common.BeforeAdvice"></bean>
 	   <bean id="afterReturning" class="peter.spring.web.common.AfterReturningAdvice"></bean>
 	   <bean id="afterThrowing" class="peter.spring.web.common.AfterThrowingAdvice"></bean>
 	   <bean id="afterAdvice" class="peter.spring.web.common.AfterAdvice"></bean>
 	   <bean id="around" class="peter.spring.web.common.AroundAdvice"></bean>
 	   <aop:config>
 	   	<aop:pointcut expression="execution(* peter.spring.web..*Impl.*(..))" id="allPointcut"/>
-	   	<!-- <aop:pointcut expression="execution(* peter.spring.web..*Impl.get*(..))" id="getPointcut"/> -->
+	   	<aop:pointcut expression="execution(* peter.spring.web..*Impl.get*(..))" id="getPointcut"/>
 	   	<aop:aspect ref="around">
 	   		<aop:around method="aroundLog" pointcut-ref="allPointcut"/>
 	   	</aop:aspect>
-	   </aop:config>
+	   </aop:config> -->
 	   
 	  
 </beans>
