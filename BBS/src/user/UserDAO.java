@@ -20,7 +20,8 @@ public class UserDAO {
 			String dbURL = "jdbc:mysql://192.168.10.130/bbs";
 			String dbID = "broship";
 			String dbPW = "broship";
-			Class.forName("com.mysql.jdbc.Driver");
+//			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPW);
  		} catch (Exception e) {
 			e.printStackTrace();
