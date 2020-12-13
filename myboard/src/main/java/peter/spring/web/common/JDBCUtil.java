@@ -11,7 +11,7 @@ public class JDBCUtil {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			return DriverManager.getConnection(
-					"jdbc:oracle:thin:@localhost:1521/XEPDB1",
+					"jdbc:oracle:thin:@localhost:1521/xe",
 					"mytest","mytest");
 			
 		} catch (Exception e) {

@@ -14,8 +14,8 @@ public class BoardServiceClient {
 // 3. 글 등록 기능 테스트
 		BoardVO vo = new BoardVO();
 		vo.setTitle("스프링jdbc");
-		vo.setWriter("칠길동");
-		vo.setContent("스프링으로 jdbc설정하기");
+		vo.setWriter("일길동");
+		vo.setContent("내용");
 		boardService.insertBoard(vo);
 // 4. 글 검색 기능 테스트
 		List<BoardVO> boardList = boardService.getBoardList(vo);
