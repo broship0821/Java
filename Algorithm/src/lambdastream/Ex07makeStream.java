@@ -2,6 +2,7 @@ package lambdastream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -37,6 +38,22 @@ public class Ex07makeStream {
 		System.out.println(intStream2.sum()); //기본형은 count이외에도 sum, avg등 함수 사용 가능
 		System.out.println(intStream3.count());//객체형은 count만 사용 가능
 		
+		System.out.println("----------------------------------");
+		//랜덤 스트림 만들기
+		IntStream randomStream1 = new Random().ints(); //ints()는 무한스트림이기때문에 limit을 사용하거나 괄호안에 매개변수로 숫자쓰면됨
+		randomStream1.limit(5).forEach(System.out::println);
+		//길이 지정
+		System.out.println("-----");
+		IntStream randomStream2 = new Random().ints(5); 
+		randomStream2.forEach(System.out::println);
+		//범위 지정
+		System.out.println("-----");
+		IntStream randomStream3 = new Random().ints(5,10); //5~9사이의 난수 생성
+		randomStream3.limit(5).forEach(System.out::println);
+		//길이 및 범위 지정
+		System.out.println("-----");
+		IntStream randomStream4 = new Random().ints(5,5,10); //5~9사이의 난수 생성
+		randomStream4.forEach(System.out::println);
 		
 
 	}
