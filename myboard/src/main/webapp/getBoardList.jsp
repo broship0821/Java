@@ -1,6 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="peter.spring.web.board.impl.BoardDAO"%>
 <%@page import="peter.spring.web.board.BoardVO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- <%
@@ -50,15 +51,15 @@
 			<th>등록일</th>
 			<th>조회수</th>
 		</tr>
-		<% for(BoardVO board : boardList) { %>
+		<c:forEach var="board" items="${boardList }">
 		<tr>
-			<th><%=board.getSeq() %></th>
-			<th><a href="getBoard.do?seq=<%=board.getSeq() %>"><%=board.getTitle() %></a></th>
-			<th><%=board.getWriter() %></th>
-			<th><%=board.getRegDate() %></th>
-			<th><%=board.getCnt() %></th>
+			<th>${board.seq }</th>
+			<th><a href="getBoard.do?seq=${board.seq }">${board.title }</a></th>
+			<th>${board.writer }</th>
+			<th>${board.regDate }</th>
+			<th>${board.cnt }</th>
 		</tr>
-		<%} %>
+		</c:forEach>
 	</table><br>
 	<a href="insertBoard.jsp">새글 작성</a>
 </body>
