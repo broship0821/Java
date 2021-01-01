@@ -28,6 +28,6 @@
 			</tr>
 		</table>
 	</form><hr>
-	<a href="getBoardList.jsp">글목록으로</a>
+	<a href="getBoardList.do">글목록으로</a>
 </body>
 </html>
