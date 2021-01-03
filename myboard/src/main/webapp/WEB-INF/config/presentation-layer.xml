@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<context:component-scan base-package="peter.spring.web"></context:component-scan>
+	
+<!-- 기존 xml 설정들
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/board/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
 
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
@@ -23,5 +33,5 @@
 	<bean id="updateBoard" class="peter.spring.web.board.UpdateBoardController"></bean>
 	<bean id="deleteBoard" class="peter.spring.web.board.DeleteBoardController"></bean>
 	<bean id="logout" class="peter.spring.web.user.LogoutController"></bean>
-
+ -->
 </beans>

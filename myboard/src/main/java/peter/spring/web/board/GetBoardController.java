@@ -26,7 +26,7 @@ public class GetBoardController implements Controller {
 		//3. 응답화면 구현
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("board", board);
-		mav.setViewName("getBoard.jsp");
+		mav.setViewName("getBoard");
 		
 		return mav;
 	}
