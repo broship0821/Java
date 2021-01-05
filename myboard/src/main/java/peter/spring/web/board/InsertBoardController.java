@@ -1,30 +1,18 @@
 package peter.spring.web.board;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 import peter.spring.web.board.impl.BoardDAO;
 @Controller
 public class InsertBoardController {
-	public void insertBoard(HttpServletRequest request) {
+	@RequestMapping(value = "/insertBoard.do")
+	public String insertBoard(BoardVO vo, BoardDAO boardDAO) {
 		System.out.println("글 등록 처리");
-		// 1. 사용자 입력 정보 추출
-//		request.setCharacterEncoding("UTF-8");
-		String title = request.getParameter("title");
-		String writer = request.getParameter("writer");
-		String content = request.getParameter("content");
+		// 1. 사용자 입력 정보 추출: 커맨드 객체가 자동으로 처리해줌
 		
 		//2. 데이터베이스 연동처리
-		BoardVO vo = new BoardVO();
-		vo.setTitle(title);
-		vo.setWriter(writer);
-		vo.setContent(content);
-		
-		BoardDAO boardDAO = new BoardDAO();
 		boardDAO.insertBoard(vo);
+		return "getBoardList.do";
 	}
 
 //	@Override
